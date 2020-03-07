@@ -1,0 +1,5 @@
+Poptip(title="新建", placement="right-start", v-model="visible", width="auto", :transfer="true", popper-class="addPageMenus")
+    Button(icon="md-add", class="addPage")
+    Menu(class="addPageMenus" active-name="defaultMenu", theme="dark", width="auto", minWidth="200px", slot="content")
+        MenuItem(name="dir", @click.native="openDirDialog") 目录
+        MenuItem(name="page", @click.native="openPageDialog") 网页

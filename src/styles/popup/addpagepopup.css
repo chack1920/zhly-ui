@@ -1,0 +1,27 @@
+.searchToolbar .addPage {
+    padding: 0px !important;
+    border: 0px !important;
+    color: rgb(54, 62, 79) !important;
+    background-color: #fff !important;
+    position: inherit !important;
+    z-index: 55555 !important;
+    margin-top: -1px !important;
+    margin-left: 2px !important;
+}
+.addPageMenus .ivu-poptip-body {
+    padding: 5px;
+}
+.addPageMenus .ivu-menu-item {
+    background: #fff;
+    color: #17233d !important;
+}
+.addPageMenus .ivu-menu-item:hover {
+    background: #ebe4ec !important;
+}
+.addPageMenus .ivu-menu-item-selected {
+    background: #f2f1f3 !important;
+    color: #57a3f3 !important;
+}
+.ivu-menu .ivu-layout-header,.ivu-menu .ivu-layout-content{
+    background-color: #363e4f;
+}

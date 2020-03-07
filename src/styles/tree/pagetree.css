@@ -1,0 +1,32 @@
+.pageTree {
+    color: #d4cbcb;
+}
+.pageTree button {
+    padding: 0px !important;
+    font-size: 12px !important;
+    border-radius: 50px !important;
+    height: 14px;
+    line-height: 14px;
+}
+.pageTree button i {
+    height: 14px;
+    line-height: 12px !important;
+}
+.ivu-tree-children .ivu-btn-small {
+    width: 18px !important;
+    height: 18px !important;
+    line-height: 12px !important;
+    font-size: 12px !important;
+    border-radius: 50% !important;
+    font-weight: bold !important;
+}
+.ivu-tabs-bar .ivu-tabs-nav-container .ivu-tabs-nav-scroll .ivu-tabs-nav .ivu-tabs-tab {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    line-height: 25px !important;
+    height: 25px !important;
+}
+.ivu-tabs .ivu-tabs-content {
+    height: 100%;
+    margin-top: 0px
+}
