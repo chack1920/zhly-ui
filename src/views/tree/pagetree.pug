@@ -1,0 +1,12 @@
+div
+    Tree(ref="tree", :data="treeData", :render="renderContent", class="pageTree")
+    Modal(v-model="showConfirmDialog", :title="confirmTitle", @on-ok="ok", @on-cancel="cancel")
+        p {{confirmContent}}
+    Modal(v-model="$store.state.TreeNodeStore.showDirDialog", ref="dirDialog", :title="$store.state.TreeNodeStore.createTitle + '新建目录'", :loading="loading", @on-ok="createDir" @on-cancel="closeDialog")
+        Form(ref="form", :model="form", :rules="dirValidateRules")
+            FormItem(label="目录名称", prop="filename")
+                Input(placeholder="请输入目录名称", v-model="form.filename")
+    Modal(v-model="$store.state.TreeNodeStore.showPageDialog", ref="pageDialog", :title="$store.state.TreeNodeStore.createTitle + '新建网页'", :loading="loading", @on-ok="createPage" @on-cancel="closeDialog")
+        Form(ref="form", :model="form", :rules="pageValidateRules")
+            FormItem(label="网页名称", prop="filename")
+                Input(placeholder="请输入网页名称", v-model="form.filename")

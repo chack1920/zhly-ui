@@ -1,0 +1,29 @@
+.layout
+    Header(:style="{position: 'fixed', width: '100%', marginLeft:'-1px', marginTop:'-1px'}")
+        .layout-logo
+            span LEGOPG
+        .login
+            Tooltip(content="会员中心", placement="right", :delay="1000")
+                Icon(type="ios-contact", :style="{fontSize:'18pt'}")
+                a(href="javascript:void(0)") linlurui
+
+            Tooltip(content="系统设置", placement="right", :delay="1000")
+                Icon(type="md-settings")
+
+            Tooltip(content="网站服务", placement="right", :delay="1000")
+                Icon(type="md-globe")
+
+
+    Split.spliter(v-model='splitWidth', :min="0.15", :max="0.5")
+        div.framework-spliter(slot="left")
+            Navigation
+        div.framework-spliter(slot="right")
+            Layout
+                Content(:style="{padding: '0 16px 16px'}")
+                    Breadcrumb(v-if="showPath()", :style="{margin: '16px 0'}")
+                        Button(icon="md-arrow-dropright", title="保存并预览", @click="saveAndPreview()")
+                        Button(icon="md-checkmark-circle-outline", title="保存", @click="save()")
+                        BreadcrumbItem(v-for="name in showPath()") {{name}}
+
+            Card(class="design-workspace")
+                router-view

@@ -1,0 +1,39 @@
+.stylepane
+    Divider 基块
+    Row
+        Col(span="6")
+            span ID
+        Col(span="18")
+            StyleAttribute(:type="'text'", :value="this.id", :attribute="'id'")
+    Row
+        Col(span="6")
+            span 宽
+        Col(span="6")
+            StyleAttribute(:type="'number'", :value="this.width", :attribute="'width'")
+        Col(span="6")
+            span 单位
+        Col(span="6")
+            StyleAttribute(:type="'select'", :value="'px'", :options="['px', 'pt', 'vw', 'em', '%']")
+    Row
+        Col(span="6")
+            span 最大
+        Col(span="6")
+            StyleAttribute(:type="'number'", :value="this.maxWidth", :attribute="'max-width'")
+        Col(span="6")
+            span 单位
+        Col(span="6")
+            StyleAttribute(:type="'select'", :value="'px'", :options="['px', 'pt', 'vw', 'em', '%']")
+    Row
+        Col(span="6")
+            span 最小
+        Col(span="6")
+            StyleAttribute(:type="'number'", :value="this.minWidth", attribute="'min-width'")
+        Col(span="6")
+            span 单位
+        Col(span="6")
+            StyleAttribute(:type="'select'", :value="'px'", :options="['px', 'pt', 'vw', 'em', '%']")
+    Divider 文字
+    Divider 背景
+    Divider 表格
+    Divider 事件
+    Divider 数据

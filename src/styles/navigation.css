@@ -1,0 +1,56 @@
+.searchToolbar {
+    padding-top: -10px !important;
+    padding-bottom: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    line-height: 32px !important;
+    height: 32px !important;
+    margin-top: -15px !important;
+    right: 0px !important;
+    width: auto !important;
+    margin-right: 0px !important;
+}
+.searchToolbar .ivu-input-wrapper {
+    position: fixed !important;
+    left: 0px !important;
+    right: 0px !important;
+    width: auto !important;
+    margin-right: 0px !important;
+}
+.searchToolbar .ivu-input-wrapper .ivu-input-with-suffix {
+    padding-right: 32px !important;
+    padding-left: 20px !important;
+}
+.ivu-tabs-nav {
+    color: #bda98b;
+}
+.ivu-tabs-nav .ivu-tabs-tab-active {
+    color: #f36157!important;
+}
+.ivu-tabs-nav .ivu-tabs-tab:hover {
+    color: #f36157!important;
+}
+.ivu-tabs-nav .ivu-tabs-tab {
+    padding: 8px 5px!important;
+    margin-right: 5px!important;
+}
+.ivu-tabs-nav .ivu-tabs-tab .ivu-icon {
+    margin-right: 0px!important;
+}
+.ivu-tabs-bar {
+    outline: 0;
+    width: 100%;
+}
+
+.ivu-menu-opened {
+    height: calc(100% - 196px);
+    overflow: auto;
+}
+
+.ivu-layout-content {
+    background-color: #363e4f;
+}
+
+.addPageMenus .ivu-menu-item {
+    padding: 5px !important;
+}
