@@ -1,16 +1,12 @@
+/*
+ * @Date         : 2020-03-07 17:25:59
+ * @LastEditors  : HaoJie
+ * @LastEditTime : 2020-03-07 23:07:23
+ * @FilePath     : /typings.d.ts
+ */
 declare module "*.vue" {
   import Vue from 'vue'
   export default Vue
-}
-
-declare module "*.iview" {
-  import iview from 'Vue'
-  export default iview
-}
-
-declare module 'tinymce' {
-  import tinymce from 'tinymce/tinymce'
-  export default tinymce;
 }
 
 declare module "*.json" {

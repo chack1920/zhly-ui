@@ -1,3 +1,9 @@
+/*
+ * @Date         : 2020-03-07 17:25:59
+ * @LastEditors  : HaoJie
+ * @LastEditTime : 2020-03-07 23:07:13
+ * @FilePath     : /package/webpack.watch.conf.js
+ */
 var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
@@ -6,7 +12,6 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
 const VueRouterInvokeWebpackPlugin = require('vue-router-invoke-webpack-plugin')
 
 // add hot-reload related code to entry chunks
@@ -35,7 +40,7 @@ module.exports = merge(baseWebpackConfig, {
       'language' : 'typescript',
       'mode' : 'hash',
       'redirect': [{
-          redirect: '/home/design',
+          redirect: '/login',
           path: '/'
       }]
     }),
@@ -50,27 +55,5 @@ module.exports = merge(baseWebpackConfig, {
     }),
     new FriendlyErrorsPlugin(),
     // copy custom static assets
-    new CopyWebpackPlugin([
-        {
-            from: path.resolve(__dirname, '../src/assets/tinymce/langs'),
-            to: config.build.assetsRoot + '/langs',
-            ignore: ['.*']
-        },
-        {
-            from: path.resolve(__dirname, '../src/assets/tinymce/skins'),
-            to: config.build.assetsRoot + '/skins',
-            ignore: ['.*']
-        },
-        {
-            from: path.resolve(__dirname, '../src/assets/tinymce/plugins'),
-            to: config.build.assetsRoot + '/plugins',
-            ignore: ['.*']
-        },
-        {
-            from: path.resolve(__dirname, '../src/assets/css'),
-            to: config.build.assetsRoot + '/css',
-            ignore: ['.*']
-        }
-    ])
   ]
 })

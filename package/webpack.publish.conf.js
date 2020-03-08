@@ -1,8 +1,13 @@
+/*
+ * @Date         : 2020-03-07 17:25:59
+ * @LastEditors  : HaoJie
+ * @LastEditTime : 2020-03-07 23:11:22
+ * @FilePath     : /package/webpack.publish.conf.js
+ */
 var path = require('path')
 var utils = require('./utils')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
 var publishRoot = path.resolve(__dirname, '../publish');
 
 var webpackConfig = merge(baseWebpackConfig, {

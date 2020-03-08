@@ -1,0 +1,10 @@
+#login-wrap
+  .login
+    .logo
+    .box
+      span.line
+      h1 华远智能
+      .input
+        el-input(v-model="$store.state.LoginStore.username", prefix-icon="el-icon-user", placeholder="请输入账号")
+        el-input(v-model="$store.state.LoginStore.password", prefix-icon="el-icon-lock", placeholder="请输入密码", show-password)
+        el-button(type="primary", @click="store.login") 登录

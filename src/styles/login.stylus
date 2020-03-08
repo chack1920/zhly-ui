@@ -1,0 +1,55 @@
+#login-wrap
+  height 10.8rem
+  background-image url('~static/login_background_image.png')
+  background-size 100% 100%
+  padding .3rem .6rem
+  .login
+    width 7rem
+    height 7.5rem
+    position relative
+    .logo
+      width 3rem
+      height .5rem
+      background-image url('~static/logo.png')
+      background-size 100% 100%
+    .box
+      position absolute
+      width 4.5rem
+      height 4.2rem
+      right 0
+      bottom 0
+      .line
+        position absolute
+        width .65rem
+        height .08rem
+        background-color: #6baff1
+      h1
+        font-size .4rem
+        line-height 1
+        margin-top .5rem
+      .input
+        width 100%
+        position absolute
+        bottom 0
+        display flex
+        flex-direction column
+        /deep/ .el-input__inner
+          border-top none
+          border-left none
+          border-right none
+          padding-left .4rem
+          height .65rem
+          line-height .65rem
+          border-radius 0
+          background-color transparent
+          margin-bottom .4rem
+        /deep/ .el-input
+          font-size .18rem
+        /deep/ .el-input__icon
+          line-height .65rem
+          color #4e93fd
+          width .25rem
+          height auto
+        /deep/ .el-button
+          font-size .18rem
+          width 2.2rem

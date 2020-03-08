@@ -1,5 +1,11 @@
 /*
- *  Legopg Copyright (C) 2019 linlurui <rockylin@qq.com>
+ * @Date         : 2020-03-05 12:32:01
+ * @LastEditors  : HaoJie
+ * @LastEditTime : 2020-03-07 00:22:52
+ * @FilePath     : /src/store/index.ts
+ */
+/*
+ *  Legopg Copyright (C) 2020 liudongwang <29202938@qq.com>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -20,4 +26,18 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({});
+export default new Vuex.Store({
+  state: {
+    loading: false,
+    path: '',
+  },
+  mutations: {
+    changeLoading(state, setBoolea) {
+      state.loading = setBoolea;
+    },
+    changePath(state, path) {
+      state.path = path;
+    },
+  },
+});
+

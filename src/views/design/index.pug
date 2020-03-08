@@ -1,5 +1,0 @@
-Tabs(type="card", size="small", @on-click="onClick", @on-tab-remove="onTabRemove", v-model="$store.state.PagesStore.currentTab", :capture-focus="true")
-    //TabPane(:name="'testtt'", :label="'商城'") 123
-    TabPane(v-for="(item, index) in $store.state.PagesStore.pages", closable, v-if="item", :name="item.path", :label="item.name", class="page-content")
-        Toolbar(:size="item.width ? item.width : 1280", :index="index", @change="resize")
-        Editor(:init="init", @onInit="onInit(index)", v-model="item.content")

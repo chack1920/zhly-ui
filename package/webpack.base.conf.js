@@ -1,3 +1,9 @@
+/*
+ * @Date         : 2020-03-07 17:25:59
+ * @LastEditors  : HaoJie
+ * @LastEditTime : 2020-03-08 15:03:40
+ * @FilePath     : /package/webpack.base.conf.js
+ */
 var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
@@ -22,11 +28,20 @@ module.exports = {
     extensions: ['.ts', '.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+      'assets': resolve('src/assets'),
+      'styles': resolve('src/styles'),
+      'common': resolve('src/common'),
+      'components': resolve('src/components'),
+      'request': resolve('src/request'),
+      'router': resolve('src/router'),
+      'store': resolve('src/store'),
+      'views': resolve('src/views'),
+      'static': resolve('static'),
     }
   },
   node: {
-     fs: "empty"
+    fs: "empty"
   },
   module: {
     rules: [

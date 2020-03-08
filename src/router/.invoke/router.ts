@@ -1,14 +1,14 @@
 import Vue from 'vue';import Router, { RouteConfig } from 'vue-router';;Vue.use(Router);export const routes: RouteConfig[] = [
             {
-              component: () => import('../../pages/home/home.vue'),
+              component: () => import('../../pages/home/Index.vue'),
               name:'home',
-              path:'/home',children:[
+              path:'/home',},
             {
-              component: () => import('../../pages/home/design/index.vue'),
-              name:'home-design',
-              path:'design',},],},
+              component: () => import('../../pages/login/Index.vue'),
+              name:'login',
+              path:'/login',},
       {
         path:'/',
-        redirect:'/home/design'
+        redirect:'/login'
       },
     ];const router = new Router({mode: 'hash',routes,});export default router;

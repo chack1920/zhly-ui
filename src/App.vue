@@ -1,12 +1,57 @@
-<template lang="pug">
-    #app
-        router-view
+<!--
+ * @Date         : 2020-02-24 14:32:59
+ * @LastEditors  : HaoJie
+ * @LastEditTime : 2020-03-08 11:25:12
+ * @FilePath     : /src/App.vue
+ -->
+<template lang='pug'>
+  #app
+    headers(v-show="show")
+    router-view
 </template>
+
 <script lang="ts">
-    import { Vue, Component } from 'vue-property-decorator'
-    @Component({
-        components: {
-        }
-    })
-    export default class App extends Vue {}
+import { Component, Vue, Model } from 'vue-property-decorator';
+import head from "components/head/index.vue";
+// import { getModule } from 'vuex-module-decorators';
+// import LoginStore from 'store/modules/login/LoginStore';
+
+@Component({
+  name: 'APP',
+  components: {
+    headers: head,
+  },
+})
+export default class App extends Vue {
+  constructor() {
+    super();
+    this.adapt();
+    window.onresize = () => this.adapt()
+  }
+
+  private adapt(): void {
+    const StandardWidth = 1920;
+    const StandardFontSize = 100;
+    const nowWidth = document.documentElement.offsetWidth < 1600 ? 1600 : document.documentElement.offsetWidth;
+    const nowFontSize = nowWidth / StandardWidth * StandardFontSize;
+    document.documentElement.style.fontSize = nowFontSize + 'px';
+  }
+
+  get show() {
+    let path = this['$route'].path;
+    switch (path) {
+      case '/login':
+        return false;
+      case '/home':
+        return true;
+      default:
+        return null;
+    }
+  }
+}
 </script>
+
+<style lang="stylus">
+@import 'assets/style/index.css';
+@import 'styles/app.stylus';
+</style>

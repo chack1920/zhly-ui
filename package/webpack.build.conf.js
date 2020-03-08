@@ -9,7 +9,6 @@ var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
 const VueRouterInvokeWebpackPlugin = require('vue-router-invoke-webpack-plugin')
 
 // add hot-reload related code to entry chunks
@@ -39,7 +38,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       'language' : 'typescript',
       'mode' : 'hash',
       'redirect': [{
-          redirect: '/home/design',
+          redirect: '/login',
           path: '/'
       }]
     }),
@@ -96,28 +95,6 @@ var webpackConfig = merge(baseWebpackConfig, {
       }
     }),
     // copy custom static assets
-    new CopyWebpackPlugin([
-        {
-            from: path.resolve(__dirname, '../src/assets/tinymce/langs'),
-            to: config.build.assetsRoot + '/langs',
-            ignore: ['.*']
-        },
-        {
-            from: path.resolve(__dirname, '../src/assets/tinymce/skins'),
-            to: config.build.assetsRoot + '/skins',
-            ignore: ['.*']
-        },
-        {
-            from: path.resolve(__dirname, '../src/assets/tinymce/plugins'),
-            to: config.build.assetsRoot + '/plugins',
-            ignore: ['.*']
-        },
-        {
-            from: path.resolve(__dirname, '../src/assets/css'),
-            to: config.build.assetsRoot + '/css',
-            ignore: ['.*']
-        }
-    ])
   ]
 });
 

@@ -1,0 +1,37 @@
+#head-wrap
+  height .8rem
+  background-image linear-gradient(to right, #6cc4ff, #489cff)
+  display flex
+  justify-content space-between
+  align-items center
+  padding 0 .2rem
+  font-size .2rem
+  color #fff
+  >div
+    display flex
+    align-items center
+  .left
+    .logo
+      display inline-block
+      width 2rem
+      height .35rem
+      margin-right .4rem
+      background-image url('~static/logo.png')
+      background-size 100% 100%
+    .name
+      display inline-block
+      text-shadow 2px 2px rgba(0,0,0,0.15)
+  .right
+    .out
+      cursor pointer
+      margin-right .2rem
+    .user
+      display flex
+      align-items center
+      .portrait
+        width: .4rem
+        height .4rem
+        display inline-block
+        background-image url('~static/worke_image.png')
+        background-size 100% 100%
+        margin-right .1rem
