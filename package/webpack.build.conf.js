@@ -40,6 +40,9 @@ var webpackConfig = merge(baseWebpackConfig, {
       'redirect': [{
           redirect: '/login',
           path: '/'
+      }, {
+        path: '/home',
+        redirect: '/home/homePage'
       }]
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage

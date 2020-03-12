@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-05 12:32:06
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-08 12:34:25
+ * @LastEditTime : 2020-03-12 14:03:10
  * @FilePath     : /src/main.ts
  */
 // The Vue build version to load with the `import` command
@@ -10,10 +10,11 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from 'common/RouterConfig';
 import store from 'store';
+import { server, AxiosInstance } from 'common/HttpClient';
 import 'element-ui/lib/theme-chalk/index.css';
 import {
-  // Pagination,
-  // Dialog,
+  Pagination,
+  Dialog,
   // Autocomplete,
   // Dropdown,
   // DropdownMenu,
@@ -37,7 +38,7 @@ import {
   Button,
   // ButtonGroup,
   Table,
-  // TableColumn,
+  TableColumn,
   // DatePicker,
   // TimeSelect,
   // TimePicker,
@@ -45,8 +46,8 @@ import {
   // Tooltip,
   // Breadcrumb,
   // BreadcrumbItem,
-  // Form,
-  // FormItem,
+  Form,
+  FormItem,
   // Tabs,
   // TabPane,
   // Tag,
@@ -85,14 +86,14 @@ import {
   // Backtop,
   // PageHeader,
   // CascaderPanel,
-  // Loading,
+  Loading,
   // MessageBox,
   // Message,
   // Notification,
 } from 'element-ui';
 
-// Vue.use(Pagination);
-// Vue.use(Dialog);
+Vue.use(Pagination);
+Vue.use(Dialog);
 // Vue.use(Autocomplete);
 // Vue.use(Dropdown);
 // Vue.use(DropdownMenu);
@@ -116,7 +117,7 @@ Vue.use(Input);
 Vue.use(Button);
 // Vue.use(ButtonGroup);
 Vue.use(Table);
-// Vue.use(TableColumn);
+Vue.use(TableColumn);
 // Vue.use(DatePicker);
 // Vue.use(TimeSelect);
 // Vue.use(TimePicker);
@@ -124,8 +125,8 @@ Vue.use(Table);
 // Vue.use(Tooltip);
 // Vue.use(Breadcrumb);
 // Vue.use(BreadcrumbItem);
-// Vue.use(Form);
-// Vue.use(FormItem);
+Vue.use(Form);
+Vue.use(FormItem);
 // Vue.use(Tabs);
 // Vue.use(TabPane);
 // Vue.use(Tag);
@@ -165,9 +166,9 @@ Vue.use(Table);
 // Vue.use(PageHeader);
 // Vue.use(CascaderPanel);
 
-// Vue.use(Loading.directive);
+Vue.use(Loading.directive);
 
-// Vue.prototype.$loading = Loading.service;
+Vue.prototype.$loading = Loading.service;
 // Vue.prototype.$msgbox = MessageBox;
 // Vue.prototype.$alert = MessageBox.alert;
 // Vue.prototype.$confirm = MessageBox.confirm;
@@ -176,6 +177,12 @@ Vue.use(Table);
 // Vue.prototype.$message = Message;
 
 Vue.config.productionTip = false;
+Vue.prototype.$axios = server;
+declare module 'Vue/types/vue' {
+  interface Vue {
+    $axios: AxiosInstance
+  }
+}
 
 /* eslint-disable no-new */
 new Vue({

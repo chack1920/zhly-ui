@@ -1,0 +1,9 @@
+#menu-wrap(ref="wrap")
+  ul
+    li.header(ref="header")
+      span.back(@click="back", ref="back")
+      span.indentation(@click="indentation")
+    router-link(v-for="item in list", :key="item.icon", :to="{path: item.path}", tag="li")
+      span.icon(:style="{backgroundImage: 'url(' + item.icon + ')'}")
+      span.name {{item.name}}
+        span

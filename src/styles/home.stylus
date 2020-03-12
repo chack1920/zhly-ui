@@ -1,0 +1,9 @@
+#home-wrap
+  display flex
+  .router-wrap
+    flex 1
+    height 10rem
+    padding .3em
+    .shadow
+      height 100%
+      box-shadow 0 0 .5rem -.3rem #666

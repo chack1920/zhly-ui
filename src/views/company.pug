@@ -1,0 +1,40 @@
+#company-wrap
+  .search-wrap
+    .left
+      span 公司名称:
+      el-input(v-model="$store.state.CompanyStore.name" clearable)
+      span 楼层:
+      el-input(v-model="$store.state.CompanyStore.floor" clearable)
+    .right(@click='search')
+      .search 搜索
+  .botton-wrap
+    .add(@click="showDialogAdd('新增公司')")
+      i.el-icon-circle-plus-outline
+      span 新增
+    .compile(@click="showDialogCompile('修改公司')")
+      i.el-icon-edit-outline
+      span 编辑
+    .delete(@click="deleteCompony")
+      i.el-icon-delete
+      span 删除
+  .table-wrap(v-loading="$store.state.CompanyStore.loading" element-loading-text="拼命加载中...")
+    el-table(:data="$store.state.CompanyStore.tableData" ref="table", stripe, width="100%", border, @selection-change="selectChange", :row-key="row => row.id")
+      el-table-column(type="selection" width="40", :reserve-selection="true")
+      el-table-column(type="index" label="序号" width="70")
+      el-table-column(prop="companyName" label="公司名称")
+      el-table-column(prop="size" label="办公人数")
+      el-table-column(prop="floor" label="楼层")
+      el-table-column(prop="checkIdTime" label="入住时间")
+      el-table-column(prop="personCharge" label="负责人")
+  .page-wrap
+    el-pagination(@current-change="handleCurrentChange", :current-page="$store.state.CompanyStore.pageNum", :page-size="$store.state.CompanyStore.pageSize" layout="total, prev, pager, next, jumper", :total="$store.state.CompanyStore.total")
+  dialog-box(:show.sync="show", :title="title", @clear="clear", @confirm="confirm('ruleForm')" width="6rem")
+    el-form(:model="$store.state.CompanyStore.ruleForm", :rules="$store.state.CompanyStore.rules" ref="ruleForm" label-width="1rem" class="rule-form")
+      el-form-item(label="公司名称" prop="companyName")
+        el-input(v-model="$store.state.CompanyStore.ruleForm.companyName" placeholder='请输入公司名称')
+      el-form-item(label="楼层" prop="floor")
+        el-input(v-model="$store.state.CompanyStore.ruleForm.floor" placeholder='请输入楼层')
+      el-form-item(label="入住日期" prop="checkIdTime")
+        el-input(v-model="$store.state.CompanyStore.ruleForm.checkIdTime" placeholder='格式 YYYY-MM-dd')
+      el-form-item(label="负责人" prop="personCharge")
+        el-input(v-model="$store.state.CompanyStore.ruleForm.personCharge" placeholder='请输入负责人')

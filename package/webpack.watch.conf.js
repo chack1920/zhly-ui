@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-07 17:25:59
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-07 23:07:13
+ * @LastEditTime : 2020-03-09 19:16:20
  * @FilePath     : /package/webpack.watch.conf.js
  */
 var path = require('path')
@@ -40,8 +40,11 @@ module.exports = merge(baseWebpackConfig, {
       'language' : 'typescript',
       'mode' : 'hash',
       'redirect': [{
-          redirect: '/login',
-          path: '/'
+        redirect: '/login',
+        path: '/'
+      }, {
+        path: '/home',
+        redirect: '/home/homePage'
       }]
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage

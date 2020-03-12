@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-02-24 14:32:59
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-08 11:25:12
+ * @LastEditTime : 2020-03-12 11:44:10
  * @FilePath     : /src/App.vue
  -->
 <template lang='pug'>
@@ -38,14 +38,15 @@ export default class App extends Vue {
   }
 
   get show() {
-    let path = this['$route'].path;
+    let path = this['$route'].matched.length ? this['$route'].matched[0].path : '';
+    // let path = this['$route'].path;
     switch (path) {
       case '/login':
         return false;
       case '/home':
         return true;
       default:
-        return null;
+        return false;
     }
   }
 }

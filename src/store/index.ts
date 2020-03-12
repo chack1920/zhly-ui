@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-05 12:32:01
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-07 00:22:52
+ * @LastEditTime : 2020-03-08 17:36:03
  * @FilePath     : /src/store/index.ts
  */
 /*
@@ -23,21 +23,55 @@
 
 import Vue from 'vue';
 import Vuex from 'vuex';
+// import {server as axios} from 'common/HttpClient';
+// import msgBox from 'common/MessageUtils';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    loading: false,
     path: '',
   },
   mutations: {
-    changeLoading(state, setBoolea) {
-      state.loading = setBoolea;
-    },
     changePath(state, path) {
       state.path = path;
     },
+    // // 这里对请求进行的封装
+    // // datas接受一个对象
+    // // url: 接口请求url
+    // // data: 入参（接受两种入参，字符串拼接<默认>和json）
+    // // isJson: 布尔值，默认false，为true的话就是对象入参
+    // getData(state, datas = {isJson: false}) {
+    //   let url:string = datas.url;
+    //   let data:any = datas.data;
+    //   if (datas.isJson) {
+    //     new Promise((resolve, reject) => {
+    //       axios.post(url + ',' + data)
+    //         .then(res => {
+    //           return resolve(res)
+    //         })
+    //         .catch(e => {
+    //           return reject(e)
+    //         })
+    //     })
+    //   } else {
+    //     new Promise((resolve, reject) => {
+    //       axios.post(url + '?' + data)
+    //         .then(res => {
+    //           return resolve(res)
+    //         })
+    //         .catch(e => {
+    //           return reject(e)
+    //         })
+    //     })
+    //   }
+    // },
+    // warning(state, msg) {
+    //   msgBox.warning(msg)
+    // },
+    // success(state, msg) {
+    //   msgBox.success(msg)
+    // }
   },
 });
 
