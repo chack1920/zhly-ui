@@ -1,0 +1,51 @@
+#update-wrap
+  display inline-block
+  .boxes-wrap
+    width 1.4rem
+    height 1.8rem
+    position relative
+    overflow hidden
+    border-radius .1rem
+    line-height 1.8rem
+    vertical-align top
+    color: #c0ccda
+    .boxes
+      background-color #fbfdff
+      border .02rem dashed #c0ccda
+      text-align center
+      font-size .6rem
+      cursor pointer
+      margin .02rem
+      height calc(100% - .04rem)
+      input
+        display none
+    .img-wrap
+      position absolute
+      top -100%
+      width 1.4rem
+      height 1.8rem
+      opacity 0
+      transition all .5s
+      img
+        width 100%
+        height 100%
+      &.src
+        top 0
+        opacity 1
+        z-index 10
+      .icon-wrap
+        background-color rgba(0, 0, 0, .3)
+        text-align center
+        font-size .4rem
+        position absolute
+        top 0
+        left 0
+        right 0
+        display none
+        z-index 20
+        color #ffffffc2
+      &:hover .icon-wrap
+        display inline-block
+    .el-loading-spinner
+      margin-top 0
+      top 0

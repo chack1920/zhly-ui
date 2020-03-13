@@ -1,0 +1,9 @@
+#update-wrap
+  .boxes-wrap(v-loading="loading")
+    .boxes(@click="update")
+      i.el-icon-picture-outline-round
+      input(type="file" ref="file", @change="getImg")
+    .img-wrap(ref="imgWrap")
+      img(src="", alt="", ref="img")
+      .icon-wrap
+        i.el-icon-delete(@click="del")

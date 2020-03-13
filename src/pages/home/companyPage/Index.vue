@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-03-09 20:01:58
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-12 14:14:48
+ * @LastEditTime : 2020-03-12 19:05:54
  * @FilePath     : /src/pages/home/companyPage/Index.vue
  -->
 <script lang="ts">
@@ -16,7 +16,7 @@ import msg from "common/MessageUtils";
     dialogBox: dialog
   }
 })
-export default class Index extends Vue {
+export default class CompanyPage extends Vue {
   private store: any;
   public show: boolean = false;
   public title: string = "";
@@ -68,20 +68,23 @@ export default class Index extends Vue {
       }
     });
   }
-  deleteCompony() {
+  public deleteCompony() {
     this.store.deleteCompony();
   }
-  selectChange(row) {
+  public selectChange(row) {
     this.$store.state.CompanyStore.checked = row;
   }
-  clear() {
+  public clear() {
     this.store.clear()
   }
-  handleCurrentChange() {
-    this.store.handleCurrentChange()
+  public handleCurrentChange(val) {
+    this.store.handleCurrentChange(val)
   }
-  search() {
+  public search() {
     this.store.search()
+  }
+  public getIndex(index):number {
+    return (Number(this.$store.state.CompanyStore.pageNum) - 1) * Number(this.$store.state.CompanyStore.pageSize) + index + 1
   }
 }
 </script>

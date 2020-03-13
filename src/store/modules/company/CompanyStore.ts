@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-09 20:03:02
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-12 14:12:01
+ * @LastEditTime : 2020-03-13 13:44:31
  * @FilePath     : /src/store/modules/company/CompanyStore.ts
  */
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
@@ -46,10 +46,10 @@ export default class CompanyStore extends VuexModule {
     this.pid = sessionStorage.getItem("pid")
   }
   @Action
-  public getData(name = '', floor = ''): Promise<any> {
+  public getData(): Promise<any> {
     this.createdData()
     return axios
-      .post(`${requestConfig.company.tableData}?pid=${this.pid}&pageSize=${this.pageSize}&pageNum=${this.pageNum}&companyName=${name}&floor=${floor}`)
+      .post(`${requestConfig.company.tableData}?pid=${this.pid}&pageSize=${this.pageSize}&pageNum=${this.pageNum}&companyName=${this.searchName}&floor=${this.searchFloor}`)
       .then((res: any) => {
         if (res.code == 0) {
           this.hasData(res)
@@ -74,7 +74,7 @@ export default class CompanyStore extends VuexModule {
   @Action
   private async search() {
     this.createdSearch()
-    let data: Array<any> = await this.getData(this.searchName, this.searchFloor)
+    let data: Array<any> = await this.getData()
     if (data && data.length == 0) {
       msg.warning('未搜索到相关数据!')
     }
@@ -87,13 +87,13 @@ export default class CompanyStore extends VuexModule {
   }
   @Mutation
   async searchAlone(id) {
-    return axios.post(`${requestConfig.company.tableData}?id=${id}`)
+    return axios.post(`${requestConfig.company.searchAlone}?id=${id}`)
       .then((res: any) => {
         if (res.code == 0) {
-          this.ruleForm.companyName = res.rows[0].companyName ? res.rows[0].companyName : ''
-          this.ruleForm.floor = res.rows[0].floor ? res.rows[0].floor : ''
-          this.ruleForm.checkIdTime = res.rows[0].checkIdTime ? res.rows[0].checkIdTime : ''
-          this.ruleForm.personCharge = res.rows[0].personCharge ? res.rows[0].personCharge : ''
+          this.ruleForm.companyName = res.data.companyName ? res.data.companyName : ''
+          this.ruleForm.floor = res.data.floor ? res.data.floor : ''
+          this.ruleForm.checkIdTime = res.data.checkIdTime ? res.data.checkIdTime : ''
+          this.ruleForm.personCharge = res.data.personCharge ? res.data.personCharge : ''
           return true
         }
       })

@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-03-05 17:14:48
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-09 20:10:00
+ * @LastEditTime : 2020-03-12 19:05:15
  * @FilePath     : /src/pages/home/home.vue
  -->
 <script lang="ts">
@@ -15,7 +15,7 @@ import menu from "components/menu/menu.vue";
     menus: menu
   }
 })
-export default class Index extends Vue {
+export default class Home extends Vue {
   private store: any;
   public list: Array<any> = [
     {
@@ -30,8 +30,8 @@ export default class Index extends Vue {
     },
     {
       icon: require("static/officeStaff.png"),
-      name: "办公人员",
-      path: "/home/officeStaff"
+      name: "人员管理",
+      path: "/home/personnelPage"
     },
     {
       icon: require("static/checkingIn.png"),

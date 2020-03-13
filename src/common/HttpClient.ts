@@ -14,7 +14,8 @@ const CancelToken: any = axios.CancelToken;
 
 const removePending: any = (config: any, f: any) => {
   // 获取请求的url
-  const ip = 'http://47.106.71.3:8080'
+  // const ip = 'http://47.106.71.3:8080'
+  const ip = "http://192.168.1.55:8080"
   const req = config.url.includes(ip)
   const flagUrl = config.url.substring(req ? ip.length : 0, config.url.indexOf('?'));
   // 判断该请求是否在请求队列中
@@ -37,7 +38,8 @@ const removePending: any = (config: any, f: any) => {
 let server = axios.create({
   timeout: 200000, // 请求超时时间
   headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-  baseURL: "http://47.106.71.3:8080"
+  // baseURL: "http://47.106.71.3:8080"
+  baseURL: "http://192.168.1.55:8080"
 });
 
 // 下载函数

@@ -1,14 +1,14 @@
 <!--
  * @Date         : 2020-03-10 15:27:32
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-10 16:18:44
+ * @LastEditTime : 2020-03-12 19:05:07
  * @FilePath     : /src/components/dialog/dialog.vue
  -->
 <script lang="ts">
 import { Component, Vue, Model, Prop, Watch } from "vue-property-decorator";
 
 @Component({})
-export default class Index extends Vue {
+export default class Dialog extends Vue {
   @Prop({ default: false, type: Boolean }) show: boolean;
   @Prop({ default: "提 示", type: String }) title: string;
   @Prop({ default: "确 定", type: String }) button: string;

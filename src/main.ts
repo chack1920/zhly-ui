@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-05 12:32:06
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-12 14:03:10
+ * @LastEditTime : 2020-03-12 16:11:30
  * @FilePath     : /src/main.ts
  */
 // The Vue build version to load with the `import` command
@@ -39,7 +39,7 @@ import {
   // ButtonGroup,
   Table,
   TableColumn,
-  // DatePicker,
+  DatePicker,
   // TimeSelect,
   // TimePicker,
   // Popover,
@@ -118,7 +118,7 @@ Vue.use(Button);
 // Vue.use(ButtonGroup);
 Vue.use(Table);
 Vue.use(TableColumn);
-// Vue.use(DatePicker);
+Vue.use(DatePicker);
 // Vue.use(TimeSelect);
 // Vue.use(TimePicker);
 // Vue.use(Popover);

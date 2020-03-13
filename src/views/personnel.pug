@@ -1,0 +1,46 @@
+#company-wrap
+  .search-wrap
+    .left
+      span 姓名:
+      el-input(v-model="$store.state.PersonnelSrore.peopleName" clearable)
+      span 公司名称:
+      el-input(v-model="$store.state.PersonnelSrore.name" clearable)
+      span 楼层:
+      el-input(v-model="$store.state.PersonnelSrore.floor" clearable)
+    .right(@click='search')
+      .search 搜索
+  .botton-wrap
+    //- .add(@click="showDialogAdd('新增人员')")
+    //-   i.el-icon-circle-plus-outline
+    //-   span 新增
+    //- .compile(@click="showDialogCompile('编辑人员')")
+    //-   i.el-icon-edit-outline
+    //-   span 编辑
+    .delete(@click="deleteCompony")
+      i.el-icon-delete
+      span 离职
+  .table-wrap(v-loading="$store.state.PersonnelSrore.loading" element-loading-text="拼命加载中...")
+    el-table(:data="$store.state.PersonnelSrore.tableData" ref="table", stripe, width="100%", border, @selection-change="selectChange")
+      el-table-column(type="selection" width="40", :selectable="disable")
+      el-table-column(type="index" label="序号" width="70", :index="getIndex")
+      el-table-column(prop="empName" label="姓名")
+      el-table-column(prop="id" label="工号")
+      el-table-column(prop="companyName" label="所属公司")
+      el-table-column(prop="subordinate" label="所属部门")
+      el-table-column(prop="floor" label="楼层")
+      el-table-column(label="人脸类型")
+        template(slot-scope="scope") {{ scope.row.type == 1 ? '在职人员' : '访客人员' }}
+      el-table-column(label="状态")
+        template(slot-scope="scope") {{ scope.row.ispresent == 1 ? '离职人员' : scope.row.ispresent === "0" ? '在职人员' : '无数据' }}
+  .page-wrap
+    el-pagination(@current-change="handleCurrentChange", :current-page="$store.state.PersonnelSrore.pageNum", :page-size="$store.state.PersonnelSrore.pageSize" layout="total, prev, pager, next, jumper", :total="$store.state.PersonnelSrore.total")
+  //- dialog-box(:show.sync="show", :title="title", @clear="clear", @confirm="confirm('ruleForm')" width="6rem")
+  //-   el-form(:model="$store.state.PersonnelSrore.ruleForm", :rules="$store.state.PersonnelSrore.rules" ref="ruleForm" label-width="1rem" class="rule-form")
+  //-     el-form-item(label="公司名称" prop="companyName")
+  //-       el-input(v-model="$store.state.PersonnelSrore.ruleForm.companyName" placeholder='请输入公司名称')
+  //-     el-form-item(label="楼层" prop="floor")
+  //-       el-input(v-model="$store.state.PersonnelSrore.ruleForm.floor" placeholder='请输入楼层')
+  //-     el-form-item(label="入住日期" prop="checkIdTime")
+  //-       el-input(v-model="$store.state.PersonnelSrore.ruleForm.checkIdTime" placeholder='格式 YYYY-MM-dd')
+  //-     el-form-item(label="负责人" prop="personCharge")
+  //-       el-input(v-model="$store.state.PersonnelSrore.ruleForm.personCharge" placeholder='请输入负责人')

@@ -10,7 +10,11 @@ import Vue from 'vue';import Router, { RouteConfig } from 'vue-router';;Vue.use(
             {
               component: () => import('../../pages/home/homePage/Index.vue'),
               name:'home-homePage',
-              path:'homePage',},],},
+              path:'homePage',},
+            {
+              component: () => import('../../pages/home/personnelPage/Index.vue'),
+              name:'home-personnelPage',
+              path:'personnelPage',},],},
             {
               component: () => import('../../pages/login/Index.vue'),
               name:'login',
