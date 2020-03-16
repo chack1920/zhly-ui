@@ -1,13 +1,13 @@
 <!--
  * @Date         : 2020-03-12 14:41:56
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-13 14:45:39
+ * @LastEditTime : 2020-03-13 17:51:41
  * @FilePath     : /src/pages/home/personnelPage/Index.vue
  -->
 <script lang="ts">
 import { Component, Vue, Model, Prop, Watch } from "vue-property-decorator";
 import { getModule } from "vuex-module-decorators";
-import PersonnelSrore from "store/modules/personnel/PersonnelSrore";
+import PersonnelSrore from "store/modules/personnel/PersonnelStore";
 import dialog from "components/dialog/dialog.vue";
 import updateImg from "components/updateImage/update.vue";
 import msg from "common/MessageUtils";

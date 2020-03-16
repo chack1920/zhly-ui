@@ -1,4 +1,4 @@
-#company-wrap
+#personnel-wrap
   .search-wrap
     .left
       span 姓名:
@@ -25,7 +25,7 @@
       el-table-column(type="index" label="序号" width="70", :index="getIndex")
       el-table-column(prop="empName" label="姓名")
       el-table-column(prop="id" label="工号")
-      el-table-column(prop="companyName" label="所属公司")
+      el-table-column(prop="companyName" label="所属公司" show-overflow-tooltip)
       el-table-column(prop="subordinate" label="所属部门")
       el-table-column(prop="floor" label="楼层")
       el-table-column(label="人脸类型")

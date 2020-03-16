@@ -1,0 +1,31 @@
+#attendanceRecord-wrap
+  .search-wrap
+    .left
+      span 姓名:
+      el-input(v-model="$store.state.AttendanceRecordSrore.peopleName" clearable)
+      span 所属公司:
+      el-input(v-model="$store.state.AttendanceRecordSrore.name" clearable)
+      span 进出时间:
+      el-date-picker(v-model="$store.state.AttendanceRecordSrore.passedTime" type="date" placeholder="选择进出日期" clearable value-format='yyyy-MM-dd')
+      span 进出类型:
+      el-select(v-model="$store.state.AttendanceRecordSrore.direction" clearable placeholder="选择进出类型")
+        el-option(v-for="item in option" :key="item.value" :label="item.label" :value="item.value")
+    .right(@click='search')
+      .search 搜索
+  .table-wrap(v-loading="$store.state.AttendanceRecordSrore.loading" element-loading-text="拼命加载中...")
+    el-table(:data="$store.state.AttendanceRecordSrore.tableData" ref="table", stripe, width="100%", border)
+      el-table-column(type="selection" width="40")
+      el-table-column(type="index" label="序号" width="70", :index="getIndex")
+      el-table-column(prop="empName" label="姓名")
+      el-table-column(prop="empLoyeeId" label="工号")
+      el-table-column(prop="companyName" label="所属公司" show-overflow-tooltip)
+      el-table-column(label="进出类型")
+        template(slot-scope="scope") {{ scope.row.direction == 'in' ? '进入' : '离开' }}
+      el-table-column(prop="passedTime" label="进出时间" show-overflow-tooltip)
+      el-table-column(label="人脸类型")
+        template(slot-scope="scope") {{ scope.row.type == 1 ? '在职人员' : '访客人员' }}
+      el-table-column(label="体温")
+        template(slot-scope="scope")
+          span(:style="{color: scope.row.temperature > TEMPERATURE ? '#ff0024' : '#69d54b'}") {{ scope.row.temperature }}
+  .page-wrap
+    el-pagination(@current-change="handleCurrentChange", :current-page="$store.state.AttendanceRecordSrore.pageNum", :page-size="$store.state.AttendanceRecordSrore.pageSize" layout="total, prev, pager, next, jumper", :total="$store.state.AttendanceRecordSrore.total")

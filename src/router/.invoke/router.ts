@@ -4,6 +4,10 @@ import Vue from 'vue';import Router, { RouteConfig } from 'vue-router';;Vue.use(
               name:'home',
               path:'/home',children:[
             {
+              component: () => import('../../pages/home/attendanceRecord/Index.vue'),
+              name:'home-attendanceRecord',
+              path:'attendanceRecord',},
+            {
               component: () => import('../../pages/home/companyPage/Index.vue'),
               name:'home-companyPage',
               path:'companyPage',},

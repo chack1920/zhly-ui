@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-05 12:32:06
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-12 16:11:30
+ * @LastEditTime : 2020-03-13 17:55:09
  * @FilePath     : /src/main.ts
  */
 // The Vue build version to load with the `import` command
@@ -32,8 +32,8 @@ import {
   // CheckboxButton,
   // CheckboxGroup,
   // Switch,
-  // Select,
-  // Option,
+  Select,
+  Option,
   // OptionGroup,
   Button,
   // ButtonGroup,
@@ -111,8 +111,8 @@ Vue.use(Input);
 // Vue.use(CheckboxButton);
 // Vue.use(CheckboxGroup);
 // Vue.use(Switch);
-// Vue.use(Select);
-// Vue.use(Option);
+Vue.use(Select);
+Vue.use(Option);
 // Vue.use(OptionGroup);
 Vue.use(Button);
 // Vue.use(ButtonGroup);

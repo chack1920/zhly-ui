@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-03-05 17:14:48
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-12 19:05:15
+ * @LastEditTime : 2020-03-13 15:47:45
  * @FilePath     : /src/pages/home/home.vue
  -->
 <script lang="ts">
@@ -36,7 +36,7 @@ export default class Home extends Vue {
     {
       icon: require("static/checkingIn.png"),
       name: "考勤记录",
-      path: "/home/checkingIn"
+      path: "/home/attendanceRecord"
     },
     {
       icon: require("static/blacklist.png"),

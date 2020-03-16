@@ -1,12 +1,12 @@
 <!--
  * @Date         : 2020-02-24 14:32:59
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-12 11:44:10
+ * @LastEditTime : 2020-03-14 19:15:44
  * @FilePath     : /src/App.vue
  -->
 <template lang='pug'>
   #app
-    headers(v-show="show")
+    headers(v-if="show")
     router-view
 </template>
 
