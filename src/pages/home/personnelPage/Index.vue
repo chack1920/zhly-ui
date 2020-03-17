@@ -1,13 +1,13 @@
 <!--
  * @Date         : 2020-03-12 14:41:56
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-13 17:51:41
+ * @LastEditTime : 2020-03-16 11:06:08
  * @FilePath     : /src/pages/home/personnelPage/Index.vue
  -->
 <script lang="ts">
 import { Component, Vue, Model, Prop, Watch } from "vue-property-decorator";
 import { getModule } from "vuex-module-decorators";
-import PersonnelSrore from "store/modules/personnel/PersonnelStore";
+import PersonnelStore from "store/modules/personnel/PersonnelStore";
 import dialog from "components/dialog/dialog.vue";
 import updateImg from "components/updateImage/update.vue";
 import msg from "common/MessageUtils";
@@ -23,7 +23,7 @@ export default class PersonnelPage extends Vue {
   // public title: string = "";
   constructor() {
     super();
-    this.store = getModule(PersonnelSrore);
+    this.store = getModule(PersonnelStore);
     this.store.getData();
   }
   // public showDialogAdd(name) {
@@ -35,7 +35,7 @@ export default class PersonnelPage extends Vue {
   // }
   // public showDialogCompile(name) {
   //   this.title = name;
-  //   let list = this.$store.state.PersonnelSrore.checked;
+  //   let list = this.$store.state.PersonnelStore.checked;
   //   let temp;
   //   switch (list.length) {
   //     case 0:
@@ -49,7 +49,7 @@ export default class PersonnelPage extends Vue {
   //       break;
   //   }
   //   if (temp) {
-  //     this.$store.state.PersonnelSrore.id = list[0].id
+  //     this.$store.state.PersonnelStore.id = list[0].id
   //     this.show = true;
   //     this.$nextTick(() => {
   //       this.resetForm("ruleForm");
@@ -73,7 +73,7 @@ export default class PersonnelPage extends Vue {
     this.store.deleteCompony();
   }
   selectChange(row) {
-    this.$store.state.PersonnelSrore.checked = row;
+    this.$store.state.PersonnelStore.checked = row;
   }
   // clear() {
   //   this.store.clear()
@@ -85,7 +85,7 @@ export default class PersonnelPage extends Vue {
     this.store.search()
   }
   public getIndex(index):number {
-    return (Number(this.$store.state.PersonnelSrore.pageNum) - 1) * Number(this.$store.state.PersonnelSrore.pageSize) + index + 1
+    return (Number(this.$store.state.PersonnelStore.pageNum) - 1) * Number(this.$store.state.PersonnelStore.pageSize) + index + 1
   }
   public disable(row) {
     if (row.ispresent === "0" ) {

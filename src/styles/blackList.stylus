@@ -1,0 +1,72 @@
+#balackList-wrap
+  height 100%
+  position relative
+  .search-wrap
+    height .9rem
+    padding 0 .2rem
+    border-bottom .1rem solid #f7
+    font-size .18rem
+    display flex
+    justify-content space-between
+    align-content center
+    .left
+      display flex
+      align-items center
+    /deep/ .el-input
+      display inline-block
+      width: 2.6rem
+      margin 0 .25rem
+    .right
+      display flex
+      align-items center
+      .search
+        width 1.6rem
+        line-height .4rem
+        text-align center
+        border-radius .02rem
+        background-color #ffd14f
+        border .01rem solid #d4ad40
+        color #ffffff
+        cursor pointer
+        transition all .5s
+        &:hover
+          background-color #d4ad40
+  .botton-wrap
+    padding .2rem .2rem 0
+    font-size 0
+    >div
+      display inline-block
+      color #0090ff
+      font-size .14rem
+      margin-right .2rem
+      line-height: .3rem
+      border-radius .02rem
+      border 1px solid #0090ff
+      cursor pointer
+      padding 0 .1rem
+      transition all .5s
+      span
+        margin-left .1rem
+      &:hover
+        color #ffffff
+        background-color #0090ff
+  .table-wrap
+    padding .2rem
+    box-sizing content-box
+    height 6.57rem
+    /deep/ .el-table
+      thead th
+        background-color #c5e8ff
+      td, th
+        padding 0
+        font-size .14rem
+        .cell
+          line-height .4rem
+  .page-wrap
+    font-size 0
+    position absolute
+    left 0
+    right 0
+    bottom .5rem
+    .el-pagination
+      text-align center

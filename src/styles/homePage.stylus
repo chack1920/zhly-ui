@@ -1,0 +1,63 @@
+#homePage
+  font-size .14rem
+  padding .35rem
+  .head
+    height 1.6rem
+    box-shadow: 0px .08rem .31rem 0px rgba(0, 0, 0, 0.1)
+    padding .2rem
+    .name-wrap
+      border-bottom .02rem solid #bd
+      padding-bottom .1rem
+      span
+        color #0090ff
+        cursor pointer
+    .message-box
+      padding-top .3rem
+      .icon
+        display inline-block
+        height .6rem
+        width .6rem
+        background-image url("~static/woker_head.png")
+        background-position: 50%
+        background-repeat no-repeat
+        background-color #04c366
+        border-radius .05rem
+      .message-wrap
+        display inline-block
+        vertical-align top
+        padding-left .2rem
+        .title
+          line-height .2rem
+        .message
+          display inline-block
+          height .4rem
+          width 1.8rem
+          line-height .2rem
+          padding-left .1rem
+          &.blue
+            border-left .03rem solid #0090ff
+          &.green
+            border-left .03rem solid #04c366
+          &.yellow
+            border-left .03rem solid #ffd14f
+          .weight
+            font-weight 600
+            font-size .16rem
+            display block
+  .chart-wrap
+    height 5.5rem
+    margin-top .35rem
+    box-shadow: 0px .08rem .31rem 0px rgba(0, 0, 0, 0.1)
+    .heads
+      height .75rem
+      position relative
+      justify-content center
+      align-items center
+      display flex
+      span
+        line-height .75rem
+        font-size .16rem
+        position absolute
+        left .2rem
+    .chart
+      height calc(100% - .75rem)

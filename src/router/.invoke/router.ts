@@ -8,6 +8,10 @@ import Vue from 'vue';import Router, { RouteConfig } from 'vue-router';;Vue.use(
               name:'home-attendanceRecord',
               path:'attendanceRecord',},
             {
+              component: () => import('../../pages/home/blackListPage/Index.vue'),
+              name:'home-blackListPage',
+              path:'blackListPage',},
+            {
               component: () => import('../../pages/home/companyPage/Index.vue'),
               name:'home-companyPage',
               path:'companyPage',},

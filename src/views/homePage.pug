@@ -1,1 +1,22 @@
-#homePage 这里是首页
+#homePage
+  .head
+    .name-wrap 当前大楼:&#12288;
+      span {{$store.state.HomePageStore.buildingName}}
+    .message-box
+      .icon
+      .message-wrap
+        .title 基本情况
+        .message.blue
+          span.weight {{$store.state.HomePageStore.companyList}}
+          span 公司总数
+        .message.green
+          span.weight {{$store.state.HomePageStore.floor}}
+          span 大厦层数
+        .message.yellow
+          span.weight {{$store.state.HomePageStore.peopleList}}
+          span 办公人数
+  .chart-wrap
+    .heads
+      span 进出人数统计
+      el-date-picker(v-model="$store.state.HomePageStore.month" type="month" placeholder="请选择月份" :clearable="false" value-format="yyyy-MM", @change="searchTime", :popper-class="'time-picker-wrap'")
+    .chart(ref="chart")

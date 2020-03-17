@@ -1,0 +1,35 @@
+#balackList-wrap
+  .search-wrap
+    .left
+      span 姓名:
+      el-input(v-model="$store.state.BlackListStore.peopleName" clearable)
+      span 所属公司:
+      el-input(v-model="$store.state.BlackListStore.name" clearable)
+      span 状态:
+      el-select(v-model="$store.state.BlackListStore.isBlacklist" clearable placeholder='请选择状态')
+        el-option(v-for="item in option", :key="item.value", :label="item.label", :value="item.value")
+    .right(@click='search')
+      .search 搜索
+  .botton-wrap
+    .add(@click="addBlackList")
+      i.el-icon-circle-plus-outline
+      span 添加
+    .delete(@click="deleteBlackList")
+      i.el-icon-delete
+      span 删除
+  .table-wrap(v-loading="$store.state.BlackListStore.loading" element-loading-text="拼命加载中...")
+    el-table(:data="$store.state.BlackListStore.tableData" ref="table", stripe, width="100%", border, @selection-change="selectChange", row-key="id")
+      el-table-column(type="selection" width="40", :selectable="selectDisable", :reserve-selection="true")
+      el-table-column(type="index" label="序号" width="70", :index="getIndex")
+      el-table-column(prop="empName" label="姓名")
+      el-table-column(prop="id" label="工号")
+      el-table-column(prop="companyName" label="所属公司" show-overflow-tooltip)
+      el-table-column(prop="subordinate" label="所属部门")
+      el-table-column(prop="floor" label="楼层")
+      el-table-column(label="人脸类型")
+        template(slot-scope="scope") {{ scope.row.type == 1 ? '在职人员' : '访客人员' }}
+      el-table-column(label="状态")
+        template(slot-scope="scope")
+          span(:style="{color: scope.row.isBlacklist == 1 ? '#fd5101' : ''}") {{ scope.row.isBlacklist == 1 ? '黑名单' : '正常人员' }}
+  .page-wrap
+    el-pagination(@current-change="handleCurrentChange", :current-page="$store.state.BlackListStore.pageNum", :page-size="$store.state.BlackListStore.pageSize" layout="total, prev, pager, next, jumper", :total="$store.state.BlackListStore.total")

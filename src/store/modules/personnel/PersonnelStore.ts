@@ -1,8 +1,8 @@
 /*
  * @Date         : 2020-03-09 20:03:02
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-13 14:52:31
- * @FilePath     : /src/store/modules/personnel/PersonnelSrore.ts
+ * @LastEditTime : 2020-03-16 11:14:32
+ * @FilePath     : /src/store/modules/personnel/PersonnelStore.ts
  */
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
 import store from "../..";
@@ -14,10 +14,10 @@ import msg from 'common/MessageUtils';
   namespaced: true,
   stateFactory: true,
   dynamic: true,
-  name: "PersonnelSrore",
+  name: "PersonnelStore",
   store,
 })
-export default class PersonnelSrore extends VuexModule {
+export default class PersonnelStore extends VuexModule {
   public name: string = '';
   public searchName: string = '';
   public floor: string = ''
