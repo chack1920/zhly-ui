@@ -16,9 +16,14 @@
     //- .compile(@click="showDialogCompile('编辑人员')")
     //-   i.el-icon-edit-outline
     //-   span 编辑
-    .delete(@click="deleteCompony")
-      i.el-icon-delete
-      span 离职
+    el-popover(placement="top" width="160" v-model="visible")
+      p 确定离职该员工吗？
+      div(style="text-align: right; margin: 0")
+        el-button(size="mini" type="text" @click="visible = false, $refs.table.clearSelection()") 取消
+        el-button(type="primary" size="mini" @click="visible = false, deleteCompony()") 确定
+      .delete(slot="reference")
+        i.el-icon-delete
+        span 离职
   .table-wrap(v-loading="$store.state.PersonnelStore.loading" element-loading-text="拼命加载中...")
     el-table(:data="$store.state.PersonnelStore.tableData" ref="table", stripe, width="100%", border, @selection-change="selectChange")
       el-table-column(type="selection" width="40", :selectable="disable")

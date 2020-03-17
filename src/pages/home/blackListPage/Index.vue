@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-03-16 11:01:30
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-16 19:12:16
+ * @LastEditTime : 2020-03-17 18:11:36
  * @FilePath     : /src/pages/home/blackListPage/Index.vue
  -->
 <script lang="ts">
@@ -30,6 +30,8 @@ export default class BlackListPage extends Vue {
     }
   ];
   public disable: string = "";
+  public visible_add: boolean = false;
+  public visible_delete: boolean = false;
   constructor() {
     super();
     this.store = getModule(BlackListStore);
@@ -39,7 +41,7 @@ export default class BlackListPage extends Vue {
     if (this.disable == "0") {
       await this.store.addBlackList();
       (this.$refs.table as HTMLFormElement).clearSelection();
-    } else if(this.disable == "0"){
+    } else if(this.disable == "1"){
       msg.warning('该员工在黑名单中，无法新增')
     } else {
       msg.warning('请选择人员！')

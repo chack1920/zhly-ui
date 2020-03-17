@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-05 12:32:06
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-13 17:55:09
+ * @LastEditTime : 2020-03-17 17:46:24
  * @FilePath     : /src/main.ts
  */
 // The Vue build version to load with the `import` command
@@ -42,7 +42,7 @@ import {
   DatePicker,
   // TimeSelect,
   // TimePicker,
-  // Popover,
+  Popover,
   // Tooltip,
   // Breadcrumb,
   // BreadcrumbItem,
@@ -121,7 +121,7 @@ Vue.use(TableColumn);
 Vue.use(DatePicker);
 // Vue.use(TimeSelect);
 // Vue.use(TimePicker);
-// Vue.use(Popover);
+Vue.use(Popover);
 // Vue.use(Tooltip);
 // Vue.use(Breadcrumb);
 // Vue.use(BreadcrumbItem);

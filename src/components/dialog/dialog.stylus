@@ -29,20 +29,28 @@
     background-color: #f8f8f8;
     border-top: .01rem solid #dedede;
     font-size 0
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   /deep/.el-dialog__footer {
     padding: .1rem;
   }
   .el-button {
     width: 1.63rem;
-    height: .49rem;
+    height: .36rem;
+    line-height: .36rem;
     transition: all .5s;
     border-radius: .02rem;
     background-color: #ffd14f;
     border: .01rem solid #d9b759;
-    font-size: .2rem;
+    font-size: .16rem;
     text-align: center;
     color: #fff;
+    padding: 0;
+    &:hover {
+      background-color #d9b759
+    }
   }
   /deep/.el-input {
     // width: 4rem;

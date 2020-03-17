@@ -11,12 +11,22 @@
     .right(@click='search')
       .search 搜索
   .botton-wrap
-    .add(@click="addBlackList")
-      i.el-icon-circle-plus-outline
-      span 添加
-    .delete(@click="deleteBlackList")
-      i.el-icon-delete
-      span 删除
+    el-popover(placement="top" width="160" v-model="visible_add")
+      p 确定添加人员为黑名单吗？
+      div(style="text-align: right; margin: 0")
+        el-button(size="mini" type="text" @click="visible_add = false, $refs.table.clearSelection()") 取消
+        el-button(type="primary" size="mini" @click="visible_add = false, addBlackList()") 确定
+      .add(slot="reference")
+        i.el-icon-circle-plus-outline
+        span 添加
+    el-popover(placement="top" width="160" v-model="visible_delete")
+      p 确定将该人员从黑名单移除吗？
+      div(style="text-align: right; margin: 0")
+        el-button(size="mini" type="text" @click="visible_delete = false, $refs.table.clearSelection()") 取消
+        el-button(type="primary" size="mini" @click="visible_delete = false, deleteBlackList()") 确定
+      .delete(slot="reference")
+        i.el-icon-delete
+        span 删除
   .table-wrap(v-loading="$store.state.BlackListStore.loading" element-loading-text="拼命加载中...")
     el-table(:data="$store.state.BlackListStore.tableData" ref="table", stripe, width="100%", border, @selection-change="selectChange", row-key="id")
       el-table-column(type="selection" width="40", :selectable="selectDisable", :reserve-selection="true")

@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-03-09 20:01:58
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-12 19:05:54
+ * @LastEditTime : 2020-03-17 17:45:53
  * @FilePath     : /src/pages/home/companyPage/Index.vue
  -->
 <script lang="ts">
@@ -20,6 +20,7 @@ export default class CompanyPage extends Vue {
   private store: any;
   public show: boolean = false;
   public title: string = "";
+  public visible: boolean = false;
   constructor() {
     super();
     this.store = getModule(CompanyStore);
@@ -41,14 +42,14 @@ export default class CompanyPage extends Vue {
         msg.warning("请选择一个修改项！");
         break;
       case 1:
-        temp = (async() => await this.store.searchAlone(list[0].id))();
+        temp = (async () => await this.store.searchAlone(list[0].id))();
         break;
       default:
         msg.warning("最多选择一个修改项！");
         break;
     }
     if (temp) {
-      this.$store.state.CompanyStore.id = list[0].id
+      this.$store.state.CompanyStore.id = list[0].id;
       this.show = true;
       this.$nextTick(() => {
         this.resetForm("ruleForm");
@@ -64,7 +65,10 @@ export default class CompanyPage extends Vue {
     ref.validate(async valid => {
       if (valid) {
         let temp = await this.store.confirm(this.title);
-        if (temp) this.show = false;
+        if (temp) {
+          this.show = false;
+          (this.$refs.table as HTMLFormElement).clearSelection();
+        }
       }
     });
   }
@@ -75,16 +79,21 @@ export default class CompanyPage extends Vue {
     this.$store.state.CompanyStore.checked = row;
   }
   public clear() {
-    this.store.clear()
+    this.store.clear();
   }
   public handleCurrentChange(val) {
-    this.store.handleCurrentChange(val)
+    this.store.handleCurrentChange(val);
   }
   public search() {
-    this.store.search()
+    this.store.search();
   }
-  public getIndex(index):number {
-    return (Number(this.$store.state.CompanyStore.pageNum) - 1) * Number(this.$store.state.CompanyStore.pageSize) + index + 1
+  public getIndex(index): number {
+    return (
+      (Number(this.$store.state.CompanyStore.pageNum) - 1) *
+        Number(this.$store.state.CompanyStore.pageSize) +
+      index +
+      1
+    );
   }
 }
 </script>

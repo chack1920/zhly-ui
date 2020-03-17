@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-03-13 15:41:52
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-13 18:16:46
+ * @LastEditTime : 2020-03-17 17:05:52
  * @FilePath     : /src/pages/home/attendanceRecord/Index.vue
  -->
 <script lang="ts">

@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-13 15:43:16
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-13 18:20:20
+ * @LastEditTime : 2020-03-17 17:07:42
  * @FilePath     : /src/store/modules/attendanceRecord/AttendanceRecordStore.ts
  */
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
@@ -75,6 +75,7 @@ export default class AttendanceRecordSrore extends VuexModule {
   @Mutation
   public createdSearch() {
     this.searchName = this.name
+    this.passedTime = this.passedTime ? this.passedTime : ''
     this.searchPassedTime = this.passedTime
     this.searchPeopleName = this.peopleName
     this.searchDirection = this.direction

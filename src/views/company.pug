@@ -14,9 +14,14 @@
     .compile(@click="showDialogCompile('修改公司')")
       i.el-icon-edit-outline
       span 编辑
-    .delete(@click="deleteCompony")
-      i.el-icon-delete
-      span 删除
+    el-popover(placement="top" width="160" v-model="visible")
+      p 确定该公司删除吗？
+      div(style="text-align: right; margin: 0")
+        el-button(size="mini" type="text" @click="visible = false, $refs.table.clearSelection()") 取消
+        el-button(type="primary" size="mini" @click="visible = false, deleteCompony()") 确定
+      .delete(slot="reference")
+        i.el-icon-delete
+        span 删除
   .table-wrap(v-loading="$store.state.CompanyStore.loading" element-loading-text="拼命加载中...")
     el-table(:data="$store.state.CompanyStore.tableData" ref="table", stripe, width="100%", border, @selection-change="selectChange", :row-key="row => row.id")
       el-table-column(type="selection" width="40", :reserve-selection="true")

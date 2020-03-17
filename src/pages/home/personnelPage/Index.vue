@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-03-12 14:41:56
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-16 11:06:08
+ * @LastEditTime : 2020-03-17 18:02:43
  * @FilePath     : /src/pages/home/personnelPage/Index.vue
  -->
 <script lang="ts">
@@ -19,6 +19,7 @@ import msg from "common/MessageUtils";
 })
 export default class PersonnelPage extends Vue {
   private store: any;
+  public visible: boolean = false;
   // public show: boolean = false;
   // public title: string = "";
   constructor() {

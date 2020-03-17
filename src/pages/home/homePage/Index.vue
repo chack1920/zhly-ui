@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-03-09 18:21:44
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-17 15:52:22
+ * @LastEditTime : 2020-03-17 16:12:30
  * @FilePath     : /src/pages/home/homePage/Index.vue
  -->
 <script lang="ts">
@@ -77,7 +77,7 @@ export default class HomePage extends Vue {
           restore: { show: true },
           saveAsImage: { show: true }
         },
-        right: "2%"
+        right: "4%"
       },
       calculable: true,
       xAxis: [

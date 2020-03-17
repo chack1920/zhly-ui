@@ -34,7 +34,7 @@
   .botton-wrap
     padding .2rem .2rem 0
     font-size 0
-    >div
+    >div, span > div
       display inline-block
       color #0090ff
       font-size .14rem
