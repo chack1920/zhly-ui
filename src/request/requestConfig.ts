@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-05 11:37:23
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-17 11:43:41
+ * @LastEditTime : 2020-03-17 18:22:11
  * @FilePath     : /src/request/requestConfig.ts
  */
 //配置所有的接口
@@ -31,6 +31,7 @@ export const requestConfig ={
     delete: 'api/lyPersonnel/deleteBlacklist'
   },
   homePage: {
-    getData: '/api/lyPersonnel/personnelIndex'
+    getData: '/api/lyPersonnel/personnelIndex',
+    change: '/api/project/updateProject'
   }
 }

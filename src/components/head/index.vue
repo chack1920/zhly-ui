@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-03-06 16:11:34
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-09 19:55:41
+ * @LastEditTime : 2020-03-17 18:20:47
  * @FilePath     : /src/components/head/index.vue
  -->
 <script lang="ts">
@@ -10,7 +10,8 @@ import router from 'common/RouterConfig';
 
 @Component({})
 export default class Login extends Vue {
-  name:string;
+  private name:string;
+  private store:any
   constructor() {
     super();
     this.name = sessionStorage.getItem('userName');

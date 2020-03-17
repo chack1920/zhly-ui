@@ -1,7 +1,12 @@
 #homePage
   .head
-    .name-wrap 当前大楼:&#12288;
-      span {{$store.state.HomePageStore.buildingName}}
+    #name-wrap 当前大楼:&#12288;
+      span(v-if="show") {{$store.state.HomePageStore.buildingName}}
+      el-input(v-model="$store.state.HomePageStore.changeName" placeholder="请输入公司名称" v-else)
+      i.el-icon-edit-outline(@click="editIcon" v-if="show")
+      .button(v-else)
+        span(@click="changeNameClick") 确定
+        span(@click="clear") 取消
     .message-box
       .icon
       .message-wrap
@@ -17,6 +22,6 @@
           span 办公人数
   .chart-wrap
     .heads
-      span 进出人数统计
+      span.people 进出人数统计
       el-date-picker(v-model="$store.state.HomePageStore.month" type="month" placeholder="请选择月份" :clearable="false" value-format="yyyy-MM", @change="searchTime", :popper-class="'time-picker-wrap'")
     .chart(ref="chart")

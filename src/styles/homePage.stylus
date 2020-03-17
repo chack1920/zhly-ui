@@ -5,12 +5,28 @@
     height 1.6rem
     box-shadow: 0px .08rem .31rem 0px rgba(0, 0, 0, 0.1)
     padding .2rem
-    .name-wrap
+    #name-wrap
       border-bottom .02rem solid #bd
       padding-bottom .1rem
-      span
+      position relative
+      height .25rem
+      box-sizing content-box
+      i
         color #0090ff
         cursor pointer
+        vertical-align middle
+        margin-left .05rem
+      .el-input
+        width auto
+        /deep/.el-input__inner
+          line-height .25rem
+          height .25rem
+      .button
+        display inline-block
+        span
+          color #0090ff
+          cursor pointer
+          margin-left .1rem
     .message-box
       padding-top .3rem
       .icon
@@ -54,7 +70,7 @@
       justify-content center
       align-items center
       display flex
-      span
+      .people
         line-height .75rem
         font-size .16rem
         position absolute

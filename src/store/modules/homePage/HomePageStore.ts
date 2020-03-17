@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-09 18:23:35
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-17 14:24:40
+ * @LastEditTime : 2020-03-17 19:42:42
  * @FilePath     : /src/store/modules/homePage/HomePageStore.ts
  */
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
@@ -17,13 +17,14 @@ import { requestConfig } from 'request/requestConfig';
   store,
 })
 export default class HomePageStore extends VuexModule {
-  public buildingName: string = 'admin'; //state
+  public buildingName: string = ''; //state
   public companyList: string = ""
   public floor: string = ""
   public peopleList: string = ""
   public month: string = ""
   public pid: string = sessionStorage.getItem("pid")
   public data: Array<any> = []
+  public changeName: string = ''
 
   @Action
   public getData() {
@@ -45,8 +46,10 @@ export default class HomePageStore extends VuexModule {
     this.data = res.data.lsList
   }
 
-  @Mutation
-  private setPassword(data: String) {
+  @Action
+  private changeNameClick() {
+    return axios
+    .post(`${requestConfig.homePage.change}?id=${this.pid}&projectName=${this.changeName}`)
   }
 
   @Mutation

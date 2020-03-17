@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-03-09 18:21:44
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-17 16:12:30
+ * @LastEditTime : 2020-03-17 19:47:33
  * @FilePath     : /src/pages/home/homePage/Index.vue
  -->
 <script lang="ts">
@@ -14,6 +14,7 @@ import msg from "common/MessageUtils";
 @Component({})
 export default class HomePage extends Vue {
   private store: any;
+  private show: boolean = true;
   constructor() {
     super();
     this.store = getModule(HomePageStore);
@@ -143,7 +144,25 @@ export default class HomePage extends Vue {
       ]
     });
   }
+  clear() {
+    this.show = true
+    this.$store.state.HomePageStore.changeName = ''
+  }
+  async changeNameClick() {
+    await this.store.changeNameClick()
+      .then(res => {
+        if (res.code == 0) {
+          this.$store.state.HomePageStore.buildingName = this.$store.state.HomePageStore.changeName
+          this.clear()
+        } else {
+          msg.warning('修改名称失败!')
+        }
+      })
+  }
+  editIcon() {
+    this.show = false
+  }
 }
 </script>
 <template lang="pug" src="views/homePage.pug" />
-<style scoped lang="stylus" src='styles/homePage.stylus' />
+<style lang="stylus" src='styles/homePage.stylus' />
