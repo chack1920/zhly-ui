@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-03-09 18:21:44
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-17 19:47:33
+ * @LastEditTime : 2020-03-18 13:45:19
  * @FilePath     : /src/pages/home/homePage/Index.vue
  -->
 <script lang="ts">
@@ -71,15 +71,15 @@ export default class HomePage extends Vue {
         top: "8%",
         bottom: "8%"
       },
-      toolbox: {
-        show: true,
-        feature: {
-          magicType: { show: true, type: ["line", "bar"] },
-          restore: { show: true },
-          saveAsImage: { show: true }
-        },
-        right: "4%"
-      },
+      // toolbox: {
+      //   show: true,
+      //   feature: {
+      //     magicType: { show: true, type: ["line", "bar"] },
+      //     restore: { show: true },
+      //     saveAsImage: { show: true }
+      //   },
+      //   right: "4%"
+      // },
       calculable: true,
       xAxis: [
         {

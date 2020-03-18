@@ -1,7 +1,7 @@
 #menu-wrap(ref="wrap")
   ul
-    li.header(ref="header")
-      span.back(@click="back", ref="back")
+    //- li.header(ref="header")
+    //-   span.back(@click="back", ref="back")
       //- span.indentation(@click="indentation")
       span.indentation
     router-link(v-for="item in list", :key="item.icon", :to="{path: item.path}", tag="li")
