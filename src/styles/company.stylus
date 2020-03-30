@@ -32,7 +32,7 @@
         &:hover
           background-color #d4ad40
   .botton-wrap
-    padding .2rem .2rem 0
+    padding .1rem .2rem 0
     font-size 0
     >div, span > div
       display inline-block
@@ -51,9 +51,9 @@
         color #ffffff
         background-color #0090ff
   .table-wrap
-    padding .2rem
-    box-sizing content-box
-    height 6.57rem
+    padding .1rem .2rem .2rem
+    // box-sizing content-box
+    height 6.2rem
     /deep/ .el-table
       thead th
         background-color #c5e8ff
@@ -61,12 +61,12 @@
         padding 0
         font-size .14rem
         .cell
-          line-height .4rem
+          line-height .35rem
   .page-wrap
     font-size 0
     position absolute
     left 0
     right 0
-    bottom .5rem
+    bottom .2rem
     .el-pagination
       text-align center

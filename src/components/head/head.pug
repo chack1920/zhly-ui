@@ -1,13 +1,15 @@
 #head-wrap
-  .left
-    .logo
-    //- .name 某某某大厦
-    .name {{$store.state.HomePageStore.buildingName}}
-  .right
-    .out(@click="quit")
-      i.el-icon-switch-button
-      span 退出
-    .user
-      span.portrait
-      span {{name}}
-  .shadow
+  .position
+    .left
+      .logo
+      //- .name 某某某大厦
+      .name {{buildingName}}
+    .right
+      .out(@click="quit")
+        i.el-icon-switch-button
+        span 退出
+      .user
+        span.portrait
+        span {{name}}
+    .shadow
+  .line

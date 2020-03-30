@@ -1,8 +1,8 @@
 <!--
  * @Date         : 2020-03-09 18:21:44
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-18 13:45:19
- * @FilePath     : /src/pages/home/homePage/Index.vue
+ * @LastEditTime : 2020-03-30 20:28:52
+ * @FilePath     : \src\pages\home\homePage\Index.vue
  -->
 <script lang="ts">
 import { Component, Vue, Model, Prop } from "vue-property-decorator";
@@ -66,8 +66,8 @@ export default class HomePage extends Vue {
         data: ["办公人员", "访客人数"]
       },
       grid: {
-        left: "4%",
-        right: "4%",
+        left: "6%",
+        right: "6%",
         top: "8%",
         bottom: "8%"
       },

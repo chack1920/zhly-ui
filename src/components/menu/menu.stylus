@@ -9,8 +9,8 @@
     width 100%
     margin 0
     padding 0
-    height 10rem
     width 1.75rem
+    height 100%
     .header
       padding 0 .4rem
       >span

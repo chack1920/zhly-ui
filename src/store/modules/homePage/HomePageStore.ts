@@ -1,8 +1,8 @@
 /*
  * @Date         : 2020-03-09 18:23:35
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-17 19:42:42
- * @FilePath     : /src/store/modules/homePage/HomePageStore.ts
+ * @LastEditTime : 2020-03-30 16:18:28
+ * @FilePath     : \src\store\modules\homePage\HomePageStore.ts
  */
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
 import store from "../..";
@@ -40,6 +40,7 @@ export default class HomePageStore extends VuexModule {
   @Mutation
   public createData(res) {
     this.buildingName = res.data.projectMap.projectName
+    sessionStorage.setItem("buildingName", res.data.projectMap.projectName)
     this.companyList = res.data.projectMap.companyCount
     this.floor = res.data.projectMap.floor
     this.peopleList = res.data.projectMap.zzryzs

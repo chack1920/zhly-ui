@@ -1,5 +1,7 @@
 .message-box
   font-size 14px
+body
+  overflow-y hidden
 #app
   min-width 16rem
   color #3a

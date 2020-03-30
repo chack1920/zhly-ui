@@ -1,8 +1,8 @@
 <!--
  * @Date         : 2020-02-24 14:32:59
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-17 15:51:19
- * @FilePath     : /src/App.vue
+ * @LastEditTime : 2020-03-30 16:10:05
+ * @FilePath     : \src\App.vue
  -->
 <template lang='pug'>
   #app
