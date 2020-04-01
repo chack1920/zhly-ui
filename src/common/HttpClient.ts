@@ -3,7 +3,7 @@
 
 import axios, { AxiosInstance } from 'axios';
 import router from './routerConfig'
-import store from "store";
+import store from "store/index";
 
 // 声明一个数组用于存储每个ajax请求的取消函数和ajax标识
 let pending: any[] = [];
@@ -81,6 +81,10 @@ server.interceptors.response.use(
       if (response.status != 200) {
         throw response.data.message;
       }
+    }
+    if (response.config.responseType == "blob") {
+      downLoad(response.data, name);
+      return
     }
     if (response.data) {
       // if (response.data.status != 0 && response.data.type != "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {

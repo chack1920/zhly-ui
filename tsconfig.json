@@ -13,6 +13,19 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "typeRoots": [ "node_modules/@types" ]
+    "typeRoots": [ "node_modules/@types" ],
+    "baseUrl": "./src",
+    "paths": {
+      "assets": ["/assets/*"],
+      "common": ["/common/*"],
+      "components": ["/components/*"],
+      "pages": ["/pages/*"],
+      "request": ["/request/*"],
+      "router": ["/router/*"],
+      "store": ["/store/*"],
+      "styles": ["/styles/*"],
+      "views": ["/views/*"],
+      "static": ["../static/*"]
+    }
   }
 }

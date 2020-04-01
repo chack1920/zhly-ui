@@ -12,12 +12,16 @@
         el-option(v-for="item in option" :key="item.value" :label="item.label" :value="item.value")
     .right(@click='search')
       .search 搜索
+  .botton-wrap
+    .add(@click="download")
+      i.el-icon-download
+      span 导出
   .table-wrap(v-loading="$store.state.AttendanceRecordSrore.loading" element-loading-text="拼命加载中...")
     el-table(:data="$store.state.AttendanceRecordSrore.tableData" ref="table", stripe, width="100%", border)
       el-table-column(type="selection" width="40")
       el-table-column(type="index" label="序号" width="70", :index="getIndex")
       el-table-column(prop="empName" label="姓名")
-      el-table-column(prop="empLoyeeId" label="工号")
+      el-table-column(prop="empNumber" label="工号")
       el-table-column(prop="companyName" label="所属公司" show-overflow-tooltip)
       el-table-column(label="进出类型")
         template(slot-scope="scope") {{ scope.row.direction == 'in' ? '进入' : '离开' }}

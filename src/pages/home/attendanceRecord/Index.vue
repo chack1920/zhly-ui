@@ -1,8 +1,8 @@
 <!--
  * @Date         : 2020-03-13 15:41:52
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-17 17:05:52
- * @FilePath     : /src/pages/home/attendanceRecord/Index.vue
+ * @LastEditTime : 2020-04-01 18:04:15
+ * @FilePath     : \src\pages\home\attendanceRecord\Index.vue
  -->
 <script lang="ts">
 import { Component, Vue, Model, Prop, Watch } from "vue-property-decorator";
@@ -40,6 +40,9 @@ export default class AttendanceRecord extends Vue {
   }
   public getIndex(index):number {
     return (Number(this.$store.state.AttendanceRecordSrore.pageNum) - 1) * Number(this.$store.state.AttendanceRecordSrore.pageSize) + index + 1
+  }
+  download() {
+    this.store.download()
   }
 }
 </script>

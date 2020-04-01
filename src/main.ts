@@ -1,8 +1,8 @@
 /*
  * @Date         : 2020-03-05 12:32:06
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-17 17:46:24
- * @FilePath     : /src/main.ts
+ * @LastEditTime : 2020-04-01 09:34:49
+ * @FilePath     : \src\main.ts
  */
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
@@ -58,7 +58,7 @@ import {
   // Row,
   // Col,
   // Upload,
-  // Progress,
+  Progress,
   // Spinner,
   // Badge,
   // Card,
@@ -137,7 +137,7 @@ Vue.use(FormItem);
 // Vue.use(Row);
 // Vue.use(Col);
 // Vue.use(Upload);
-// Vue.use(Progress);
+Vue.use(Progress);
 // Vue.use(Spinner);
 // Vue.use(Badge);
 // Vue.use(Card);

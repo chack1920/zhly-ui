@@ -1,12 +1,11 @@
 #homePage
   font-size .14rem
-  padding .35rem
+  padding .25rem
   .head
-    height 1.6rem
     box-shadow: 0px .08rem .31rem 0px rgba(0, 0, 0, 0.1)
-    padding .2rem
+    padding .15rem .2rem
     #name-wrap
-      border-bottom .02rem solid #bd
+      border-bottom .01rem solid #bd
       padding-bottom .1rem
       position relative
       height .25rem
@@ -28,7 +27,7 @@
           cursor pointer
           margin-left .1rem
     .message-box
-      padding-top .3rem
+      padding-top .2rem
       .icon
         display inline-block
         height .6rem
@@ -61,19 +60,103 @@
             font-size .16rem
             display block
   .chart-wrap
-    height 5.5rem
-    margin-top .35rem
+    height 3.2rem
+    margin-top .25rem
     box-shadow: 0px .08rem .31rem 0px rgba(0, 0, 0, 0.1)
     .heads
-      height .75rem
+      height .6rem
       position relative
-      justify-content center
+      justify-content space-between
       align-items center
+      margin 0 .2rem
       display flex
+      border-bottom .01rem solid #f2f4f6
       .people
-        line-height .75rem
+        line-height .6rem
         font-size .16rem
-        position absolute
-        left .2rem
+      .el-date-editor.el-input
+        width 1.4rem
+      /deep/.el-input__inner
+        border-radius 40px
+        line-height 35px
+        height 35px
+      /deep/ .el-input__icon
+        line-height 35px
     .chart
-      height calc(100% - .75rem)
+      height calc(100% - .6rem)
+  .card
+    margin-top .25rem
+    display flex
+    justify-content space-between
+    >div
+      flex 1
+      height 2.5rem
+      box-shadow: 0px .08rem .31rem 0px rgba(0, 0, 0, 0.1)
+      .headers
+        height .4rem
+        line-height .4rem
+        border-bottom .01rem solid #f2f4f6
+        text-align center
+        font-size .16rem
+    .company
+      position relative
+      margin-right .25rem
+      .left
+        width .35rem
+        height .35rem
+        border-radius 50%
+        position absolute
+        top 50%
+        left 5%
+        // transform translateY(-.075rem)
+        transform translateY(-50%)
+        line-height .35rem
+        text-align center
+        transition .5s all
+        border 1px solid transparent
+        color #ccc
+        cursor pointer
+        &:hover
+          border 1px solid #ccc
+          box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.1)
+      .right
+        width .35rem
+        height .35rem
+        border-radius 50%
+        position absolute
+        top 50%
+        right 5%
+        // transform translateY(-.075rem)
+        transform translateY(-50%)
+        line-height .35rem
+        text-align center
+        transition .5s all
+        border 1px solid transparent
+        color #ccc
+        cursor pointer
+        &:hover
+          border 1px solid #ccc
+          box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.1)
+      .plan-wrap
+        margin 0 1rem
+        height calc(100% - .4rem)
+        position relative
+        .plan
+          /deep/.el-progress-bar
+            padding-right 0
+          .plan-item
+            display flex
+            justify-content space-between
+            font-size .14rem
+            line-height .3rem
+            padding-top .1rem
+            :first-child
+              color #98a9bc
+        .page
+          position absolute
+          width 100%
+          bottom .1rem
+          text-align center
+    .today
+      .pie
+        height calc(100% - .4rem)

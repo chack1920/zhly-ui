@@ -25,3 +25,20 @@
       span.people 进出人数统计
       el-date-picker(v-model="$store.state.HomePageStore.month" type="month" placeholder="请选择月份" :clearable="false" value-format="yyyy-MM", @change="searchTime", :popper-class="'time-picker-wrap'")
     .chart(ref="chart")
+  .card
+    .company
+      .headers 公司人数
+      .left(@click="paging('-')")
+        i.el-icon-arrow-left
+      .right(@click="paging('+')")
+        i.el-icon-arrow-right
+      .plan-wrap
+        .plan(v-for="(item, index) in $store.state.HomePageStore.companyPeople" :key="index")
+          .plan-item
+            span {{item.name}}
+            span {{`${item.arrivePeople}/${item.people}人`}}
+          el-progress(:percentage="percentage(item.arrivePeople, item.people)", :format="format", :color="color")
+        .page 总共{{$store.state.HomePageStore.total}}条_第{{pageNum}}页
+    .today
+      .headers 今日进出
+      .pie(ref="pie")

@@ -31,8 +31,27 @@
         transition all .5s
         &:hover
           background-color #d4ad40
+  .botton-wrap
+    padding .1rem .2rem 0
+    font-size 0
+    >div, span > div
+      display inline-block
+      color #0090ff
+      font-size .14rem
+      margin-right .2rem
+      line-height: .3rem
+      border-radius .02rem
+      border 1px solid #0090ff
+      cursor pointer
+      padding 0 .1rem
+      transition all .5s
+      span
+        margin-left .1rem
+      &:hover
+        color #ffffff
+        background-color #0090ff
   .table-wrap
-    padding .2rem
+    padding .1rem .2rem .2rem
     // box-sizing content-box
     height 6.2rem
     /deep/ .el-table
