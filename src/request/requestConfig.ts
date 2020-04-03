@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-05 11:37:23
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-04-01 17:03:18
+ * @LastEditTime : 2020-04-02 10:42:42
  * @FilePath     : \src\request\requestConfig.ts
  */
 //配置所有的接口
@@ -34,7 +34,7 @@ export const requestConfig = {
   homePage: {
     getData: "/api/lyPersonnel/personnelIndex",
     change: "/api/project/updateProject",
-    getPeople: "/api/????",
-    today: "/api/????"
+    getPeople: "/api/lyCompany/companyPerson",
+    today: "/api/lyRecord/getRecordCount"
   }
 };

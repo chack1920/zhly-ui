@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-09 18:23:35
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-04-01 17:03:09
+ * @LastEditTime : 2020-04-02 11:45:38
  * @FilePath     : \src\store\modules\homePage\HomePageStore.ts
  */
 import { Module, VuexModule, Mutation, Action } from "vuex-module-decorators";
@@ -27,23 +27,7 @@ export default class HomePageStore extends VuexModule {
   public changeName: string = "";
   public total: number = 10;
   public pageSize: number = null;
-  public companyPeople: Array<any> = [
-    {
-      name: "科伦特低碳产业园",
-      people: 75,
-      arrivePeople: 40
-    },
-    {
-      name: "灏杰科技园",
-      people: 750,
-      arrivePeople: 700
-    },
-    {
-      name: "隆鑫保洁园",
-      people: 10,
-      arrivePeople: 8
-    }
-  ];
+  public companyPeople: Array<any> = [];
 
   @Action
   public getData() {
@@ -84,11 +68,11 @@ export default class HomePageStore extends VuexModule {
   private getCompanyPeople(pageNum) {
     axios
       .post(
-        `${requestConfig.homePage.getPeople}?id=${this.pid}&pageNum=${pageNum}&pageSize=${this.pageSize}`
+        `${requestConfig.homePage.getPeople}?pid=${this.pid}&pageNum=${pageNum}&pageSize=${this.pageSize}`
       )
-      .then(res => {
-        if (res.data.code == 0) {
-          this.companyPeople = res.data.data;
+      .then((res:any) => {
+        if (res.code == 0) {
+          this.companyPeople = res.data.rows;
           this.total = res.data.total;
         }
       });
@@ -99,10 +83,8 @@ export default class HomePageStore extends VuexModule {
     this.pageSize = pageSize;
   }
 
-  @Mutation
+  @Action
   private getPieData() {
-    return axios.post(
-      `${requestConfig.homePage.today}?id=${this.pid}`
-    )
+    return axios.post(`${requestConfig.homePage.today}?pid=${this.pid}`);
   }
 }

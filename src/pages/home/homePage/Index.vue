@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-03-09 18:21:44
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-04-01 16:52:31
+ * @LastEditTime : 2020-04-02 11:45:48
  * @FilePath     : \src\pages\home\homePage\Index.vue
  -->
 <script lang="ts">
@@ -27,7 +27,7 @@ export default class HomePage extends Vue {
     // this.getChart();
     this.searchTime();
     this.getCompanyPeople(this.pageNum);
-    this.getPie();
+    this.getPieData();
   }
   // 获取当前时间
   getTime() {
@@ -222,14 +222,21 @@ export default class HomePage extends Vue {
   async getPieData() {
     await this.store.getPieData()
       .then(res => {
-        if (res.data.code == 0) {
+        if (res.code == 0) {
           let list = [];
-          res.data.data.forEach(item => {
-            list.push({
-              name: item.name,
-              value: item.value
-            });
-          });
+          for (const i in res.data) {
+            if (i === "zzryRecordCount") {
+              list.push({
+                name: "在职人员",
+                value: res.data[i]
+              })
+            } else if (i === "fkryRecordCount") {
+              list.push({
+                name: "访客人员",
+                value: res.data[i]
+              })
+            }
+          }
           this.getPie(list);
         } else {
           this.getPie();

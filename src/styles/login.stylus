@@ -52,4 +52,4 @@
           height auto
         /deep/ .el-button
           font-size .18rem
-          width 2.2rem
+          width 1.5rem

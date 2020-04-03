@@ -35,9 +35,9 @@
       .plan-wrap
         .plan(v-for="(item, index) in $store.state.HomePageStore.companyPeople" :key="index")
           .plan-item
-            span {{item.name}}
-            span {{`${item.arrivePeople}/${item.people}人`}}
-          el-progress(:percentage="percentage(item.arrivePeople, item.people)", :format="format", :color="color")
+            span {{item.companyName}}
+            span {{`${item.kqrs}/${item.zrs}人`}}
+          el-progress(:percentage="percentage(item.kqrs, item.zrs)", :format="format", :color="color")
         .page 总共{{$store.state.HomePageStore.total}}条_第{{pageNum}}页
     .today
       .headers 今日进出
