@@ -36,8 +36,8 @@
       el-table-column(prop="companyName" label="所属公司" show-overflow-tooltip)
       el-table-column(prop="subordinate" label="所属部门")
       el-table-column(prop="floor" label="楼层")
-      el-table-column(label="人脸类型")
-        template(slot-scope="scope") {{ scope.row.type == 1 ? '在职人员' : '访客人员' }}
+      el-table-column(label="人员类型")
+        template(slot-scope="scope") {{ scope.row.type == 1 ? '正式人员' : '访客人员' }}
       el-table-column(label="状态")
         template(slot-scope="scope")
           span(:style="{color: scope.row.isBlacklist == 1 ? '#fd5101' : ''}") {{ scope.row.isBlacklist == 1 ? '黑名单' : '正常人员' }}

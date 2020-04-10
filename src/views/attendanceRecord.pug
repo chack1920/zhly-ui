@@ -26,8 +26,8 @@
       el-table-column(label="进出类型")
         template(slot-scope="scope") {{ scope.row.direction == 'in' ? '进入' : '离开' }}
       el-table-column(prop="passedTime" label="进出时间" show-overflow-tooltip)
-      el-table-column(label="人脸类型")
-        template(slot-scope="scope") {{ scope.row.type == 1 ? '在职人员' : '访客人员' }}
+      el-table-column(label="人员类型")
+        template(slot-scope="scope") {{ scope.row.type == 1 ? '正式人员' : '访客人员' }}
       el-table-column(label="体温")
         template(slot-scope="scope")
           span(:style="{color: scope.row.temperature > TEMPERATURE ? '#ff0024' : '#69d54b'}") {{ scope.row.temperature }}

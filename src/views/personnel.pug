@@ -33,10 +33,10 @@
       el-table-column(prop="companyName" label="所属公司" show-overflow-tooltip)
       el-table-column(prop="subordinate" label="所属部门")
       el-table-column(prop="floor" label="楼层")
-      el-table-column(label="人脸类型")
-        template(slot-scope="scope") {{ scope.row.type == 1 ? '在职人员' : '访客人员' }}
+      el-table-column(label="人员类型")
+        template(slot-scope="scope") {{ scope.row.type == 1 ? '正式人员' : '访客人员' }}
       el-table-column(label="状态")
-        template(slot-scope="scope") {{ scope.row.ispresent == 1 ? '离职人员' : scope.row.ispresent === "0" ? '在职人员' : '无数据' }}
+        template(slot-scope="scope") {{ scope.row.ispresent == 1 ? '离职' : scope.row.ispresent === "0" ? '在职' : '无数据' }}
   .page-wrap
     el-pagination(@current-change="handleCurrentChange", :current-page="$store.state.PersonnelStore.pageNum", :page-size="$store.state.PersonnelStore.pageSize" layout="total, prev, pager, next, jumper", :total="$store.state.PersonnelStore.total")
   //- dialog-box(:show.sync="show", :title="title", @clear="clear", @confirm="confirm('ruleForm')" width="6rem")

@@ -1,8 +1,8 @@
 /*
  * @Date         : 2020-03-09 20:03:02
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-16 11:14:32
- * @FilePath     : /src/store/modules/personnel/PersonnelStore.ts
+ * @LastEditTime : 2020-04-10 20:13:24
+ * @FilePath     : \src\store\modules\personnel\PersonnelStore.ts
  */
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
 import store from "../..";
@@ -51,15 +51,21 @@ export default class PersonnelStore extends VuexModule {
   public getData(): Promise<any> {
     this.createdData()
     return axios
-      .post(`${requestConfig.personnel.tableData}?pid=${this.pid}&pageSize=${this.pageSize}&pageNum=${this.pageNum}&companyName=${this.searchName}&floor=${this.searchFloor}&empName=${this.searchPeopleName}`)
+      .post(
+        `${requestConfig.personnel.tableData}?pid=${this.pid}&pageSize=${
+          this.pageSize
+        }&pageNum=${this.pageNum}&companyName=${this.searchName}&floor=${
+          this.searchFloor
+        }&empName=${this.searchPeopleName}&type=1`
+      )
       .then((res: any) => {
         if (res.code == 0) {
-          this.hasData(res.data)
-          return this.tableData
+          this.hasData(res.data);
+          return this.tableData;
         } else {
-          return
+          return;
         }
-      })
+      });
   }
   @Mutation
   public createdData() {

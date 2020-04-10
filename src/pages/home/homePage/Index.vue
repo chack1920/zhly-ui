@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-03-09 18:21:44
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-04-02 11:45:48
+ * @LastEditTime : 2020-04-10 20:19:50
  * @FilePath     : \src\pages\home\homePage\Index.vue
  -->
 <script lang="ts">
@@ -227,7 +227,7 @@ export default class HomePage extends Vue {
           for (const i in res.data) {
             if (i === "zzryRecordCount") {
               list.push({
-                name: "在职人员",
+                name: "正式人员",
                 value: res.data[i]
               })
             } else if (i === "fkryRecordCount") {
