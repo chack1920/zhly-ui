@@ -1,0 +1,162 @@
+#video-list-wrap
+  position relative
+  height 100%
+  display flex
+  overflow hidden
+  .list
+    height 100%
+    flex 0 0 3rem
+    box-shadow 0 0 0.5rem -0.3rem #666
+    position relative
+    transition all .5s
+    font-size 0
+    padding .1rem .1rem 1.1rem 0
+    &.left
+      margin-left -3rem
+      box-shadow none
+    .button
+      position absolute
+      top calc(50% - .2rem)
+      right -.2rem
+      width .2rem
+      height .4rem
+      border-radius 0 .2rem .2rem 0
+      background: #fff
+      cursor pointer
+      box-shadow .02rem 0 .05rem 0 #6666663b
+      i
+        position absolute
+        display inline-block
+        line-height: .4rem
+        font-size .18rem
+        color #666
+        right .03rem
+    #typeOne
+      font-size 0
+      height 100%
+      overflow auto
+      overflow -moz-scrollbars-none
+      -ms-overflow-style none
+      &::-webkit-scrollbar
+        width 0 !important
+      .education
+        font-size .22rem
+        text-align center
+        border-bottom .02rem solid transparent
+        border-image linear-gradient(to right, #fff, #9ac6ffa3, #fff)
+        border-image-slice 1
+        margin 0 0 0 .1rem
+        cursor pointer
+        display flex
+        align-items center
+        justify-content space-between
+        .el-icon-video-camera
+          line-height .5rem
+          &.red
+            color red
+          &:hover
+            color red
+        i
+          color #909399
+        span
+          width 2.4rem
+          line-height .5rem
+      .school-wrap
+        overflow hidden
+        transition max-height .8s cubic-bezier(0, 1, 0, 1) -.1s
+        max-height 0
+        cursor pointer
+        .school-name
+          margin 0
+          padding 0 .1rem 0 .35rem
+          font-size .18rem
+          position relative
+          &:before
+            content ''
+            display block
+            height 100%
+            width 100%
+            background #54a4d7e6
+            position absolute
+            left -300px
+            top 0
+            transition .5s all
+            border-radius 0 5% 5% 0 / 50%
+            z-index -1
+          &:hover
+            &:after
+              content ''
+              display block
+              height 100%
+              width 100%
+              position absolute
+              left 0
+              top 0
+              background #efefefa6
+              border-radius 0 5% 5% 0 / 50%
+              z-index -2
+            i
+              display inline-block
+          &.actived
+            color #fff
+            i
+              color #fff
+            &:before
+              left 0
+          i
+            position absolute
+            left .1rem
+            line-height .35rem
+            display none
+            color #909399
+            &:hover
+              color red
+            &.red
+              color red
+          span
+            width 2.45rem
+            line-height .35rem
+        .school-video-wrap
+          font-size .14rem
+          overflow hidden
+          transition max-height .8s cubic-bezier(0, 1, 0, 1) -.1s
+          max-height 0
+          p
+            margin 0
+            padding .1rem 0 .1rem .5rem
+            width 2.4rem
+            &:hover
+              color #54a4d7
+      .height
+        max-height 9999px !important
+        transition-timing-function cubic-bezier(0.5, 0, 1, 0) !important
+    .close-card
+      width calc(100% - .2rem)
+      height 1rem
+      box-shadow 0 2px 12px 0 rgba(0,0,0,.1)
+      position absolute
+      bottom .1rem
+      left .1rem
+  .video-list
+    flex 1
+    display flex
+    justify-content space-around
+    align-content center
+    margin-left .2rem
+    flex-wrap wrap
+    background #060606
+    .video-wrap
+      width 25%
+      height 25%
+      position relative
+      i
+        position absolute
+        right 0
+        top 0
+        display none
+        font-size .24rem
+        color red
+        cursor pointer
+      &:hover
+        i
+          display inline-block

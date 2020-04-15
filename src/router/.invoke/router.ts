@@ -22,7 +22,11 @@ import Vue from 'vue';import Router, { RouteConfig } from 'vue-router';;Vue.use(
             {
               component: () => import('../../pages/home/personnelPage/Index.vue'),
               name:'home-personnelPage',
-              path:'personnelPage',},],},
+              path:'personnelPage',},
+            {
+              component: () => import('../../pages/home/videoList/Index.vue'),
+              name:'home-videoList',
+              path:'videoList',},],},
             {
               component: () => import('../../pages/login/Index.vue'),
               name:'login',

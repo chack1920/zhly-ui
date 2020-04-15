@@ -1,0 +1,23 @@
+#video-list-wrap
+  .list(:class="className == 'el-icon-caret-right' ? 'left' : ''")
+    .button(@click="changeClassName")
+      i(:class="className")
+    #typeOne
+      .education-wrap(v-for="(schoolList, index) in typeOne" :key="schoolList.id")
+        p.education
+          i(@click="educationShow = educationShow == schoolList.id ? '' : schoolList.id" :class="educationShow == schoolList.id ? 'el-icon-caret-bottom' : 'el-icon-caret-right'")
+          span.no-wrap(@click="educationShow = educationShow == schoolList.id ? '' : schoolList.id" :title="schoolList.name") {{schoolList.name}}
+          i.el-icon-video-camera(title="点击播放所有视频" @click="getSchoolList(schoolList)" :class="educationId == schoolList.id ? 'red' : ''")
+        .school-wrap(:class="educationShow == schoolList.id ? 'height' : ''")
+          .school(v-for="(videoList, index) in schoolList.schoolList" :key="videoList.id")
+            p.school-name(:class="schoolId == videoList.id ? 'actived' : ''")
+              i.el-icon-video-camera(title="点击播放所有视频" @click="getVideoList(videoList)" :class="videoId == videoList.id ? 'red' : ''" :style="{display: videoId == videoList.id ? 'inline-block' : ''}")
+              span.no-wrap(:title="videoList.name" @click="schoolId = schoolId == videoList.id ? '' : videoList.id") {{videoList.name}}
+            .school-video-wrap(:class="schoolId == videoList.id ? 'height' : ''")
+              .school-video(v-for="(video, index) in videoList.videoList" :key="video.name + index")
+                p.no-wrap(:title="video.name" @click="getVideo(video)") {{video.name}}
+    .close-card
+  .video-list
+    .video-wrap(v-for="id in videoSize")
+      video(:id="'player' + id" width="100%" height="100%" controls playsInline webkit-playsinline src="http://hls01open.ys7.com/openlive/86181dda9da844779846f3dad61939ae.hd.m3u8" muted)
+      i.el-icon-circle-close(@click="delVideo(`player${id}`)")

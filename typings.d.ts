@@ -1,8 +1,8 @@
 /*
  * @Date         : 2020-03-07 17:25:59
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-07 23:07:23
- * @FilePath     : /typings.d.ts
+ * @LastEditTime : 2020-04-15 17:13:53
+ * @FilePath     : \typings.d.ts
  */
 declare module "*.vue" {
   import Vue from 'vue'
@@ -21,3 +21,4 @@ declare module '*.gif'
 declare module '*.bmp'
 declare module '*.tiff'
 declare module '*.png'
+declare let EZUIPlayer: any;

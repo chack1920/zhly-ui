@@ -476,3 +476,9 @@ a:hover {
 a:active {
   text-decoration: none;
 }
+.no-wrap {
+  text-overflow: ellipsis;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+}
