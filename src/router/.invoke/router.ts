@@ -1,5 +1,13 @@
 import Vue from 'vue';import Router, { RouteConfig } from 'vue-router';;Vue.use(Router);export const routes: RouteConfig[] = [
             {
+              component: () => import('../../pages/bloc/bloc.vue'),
+              name:'bloc',
+              path:'/bloc',children:[
+            {
+              component: () => import('../../pages/bloc/blocPage/Index.vue'),
+              name:'bloc-blocPage',
+              path:'blocPage',},],},
+            {
               component: () => import('../../pages/home/home.vue'),
               name:'home',
               path:'/home',children:[

@@ -157,6 +157,7 @@
         font-size .24rem
         color red
         cursor pointer
-      &:hover
-        i
-          display inline-block
+        z-index 10
+      // &:hover
+      //   i
+      //     display inline-block

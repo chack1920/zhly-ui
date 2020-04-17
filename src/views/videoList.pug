@@ -18,6 +18,6 @@
                 p.no-wrap(:title="video.name" @click="getVideo(video)") {{video.name}}
     .close-card
   .video-list
-    .video-wrap(v-for="id in videoSize")
-      video(:id="'player' + id" width="100%" height="100%" controls playsInline webkit-playsinline src="http://hls01open.ys7.com/openlive/86181dda9da844779846f3dad61939ae.hd.m3u8" muted)
-      i.el-icon-circle-close(@click="delVideo(`player${id}`)")
+    .video-wrap(v-for="(video, index) in videoSrc")
+      video(:id="video.id" width="100%" height="100%" controls :src="video.src" muted)
+      i.el-icon-circle-close(@click="delVideo(`${video.id}`)")

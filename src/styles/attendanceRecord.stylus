@@ -55,6 +55,9 @@
     // box-sizing content-box
     height 6.2rem
     /deep/ .el-table
+      overflow visible
+      .el-table__body-wrapper
+        overflow visible
       thead th
         background-color #c5e8ff
       td, th
@@ -62,6 +65,22 @@
         font-size .14rem
         .cell
           line-height .35rem
+          overflow visible
+    .img-wrap
+      color rgb(64, 158, 255)
+      position relative
+      cursor pointer
+      img
+        position absolute
+        top -1rem
+        left -1.7rem
+        width 1.5rem
+        height 2rem
+        z-index 10
+        display none
+      &:hover
+        img
+          display inline-block
   .page-wrap
     font-size 0
     position absolute

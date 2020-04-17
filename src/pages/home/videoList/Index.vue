@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-04-13 14:18:30
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-04-15 20:55:15
+ * @LastEditTime : 2020-04-16 17:41:11
  * @FilePath     : \src\pages\home\videoList\Index.vue
  -->
 <script lang="ts">
@@ -15,7 +15,7 @@ import { promises } from "dns";
 export default class VideoListPage extends Vue {
   private store: any;
   private className: string = "el-icon-caret-left";
-  private typeOne: any = [
+  private typeOne: Array<VideoObject> = [
     {
       id: 1,
       name: "新城区教育局",
@@ -592,17 +592,51 @@ export default class VideoListPage extends Vue {
   private educationId: number = null;
   private videoId: number = null;
   private videoSize: number = 16;
+  private videoSrc: Array<any> = [];
   constructor() {
     super();
     this.store = getModule(VideoListStore);
   }
+  created() {
+    for (let i = 1; i <= this.videoSize; i++) {
+      let obj = (this.videoSrc[i - 1] = {});
+      obj["id"] = [`player${i}`];
+      obj["src"] =
+        "http://hls01open.ys7.com/openlive/86181dda9da844779846f3dad61939ae.hd.m3u8";
+    }
+  }
   mounted() {
-    for (let i = 1; i <= this.videoSize; i++) {debugger
+    this.videoStart();
+    this.getDeleteIcon();
+  }
+  videoStart() {
+    for (let i = 1; i <= this.videoSize; i++) {
       this[`player${i}`] = new EZUIPlayer(`player${i}`);
       this[`player${i}`].play();
     }
   }
-  beforeDestroy () {
+  getDeleteIcon() {
+    let wrap = document.getElementsByClassName("video-wrap");
+    for (let i = 0; i < wrap.length; i++) {
+      (wrap[i] as HTMLElement).onmouseover = () => {
+        if (
+          wrap[i]
+            .getElementsByTagName("video")[0]
+            .src.toString()
+            .match(/blob/)
+        ) {
+          wrap[i].getElementsByTagName("i")[0].style.display = "inline-block";
+        }
+      };
+      (wrap[i] as HTMLElement).onmouseout = () => {
+        wrap[i].getElementsByTagName("i")[0].style.display = "none";
+      };
+    }
+  }
+  beforeDestroy() {
+    this.videoStop();
+  }
+  videoStop() {
     for (let i = 1; i <= this.videoSize; i++) {
       if (typeof this[`player${i}`] === "object") {
         this[`player${i}`].stop();
@@ -620,10 +654,6 @@ export default class VideoListPage extends Vue {
       default:
         break;
     }
-    setTimeout(() => {
-      let iframe = this.$refs.iframe as HTMLIFrameElement;
-      iframe.src = iframe.src;
-    }, 500);
   }
   getSchoolList(list) {
     this.educationId = this.educationId == list.id ? null : list.id;
@@ -641,9 +671,57 @@ export default class VideoListPage extends Vue {
     console.log("VideoListPage -> getVideo -> list", list);
   }
   delVideo(id) {
-  console.log("VideoListPage -> delVideo -> id", id)
+    this[id].stop();
+    let ele = document.getElementById(id);
+    let parent = ele.parentElement;
+    let video = document.createElement("video");
+    video.id = id;
+    video.src = "";
+    video.controls = true;
+    video.muted = true;
+    parent.removeChild(ele);
+    parent.appendChild(video);
+    let newEle = document.getElementById(id);
+    newEle.style.width = "100%";
+    newEle.style.height = "100%";
+    this.videoSrc.forEach((item, index) => {
+      if (item.id == id) {
+        this.videoSrc[index].src = "";
+      }
+    });
+  }
+  verifyVideo(list: Array<any>): Array<any> {
+    let videoList: Array<any> = Object.assign({}, list);
+    let noRepet: boolean = true;
+    let location: number = 0;
+    this.videoSrc.forEach(item => {
+      if (!item.src) location++;
+      list.forEach((a, index) => {
+        if (a["src"] == item.src) {
+          noRepet = false;
+          videoList.splice(index, 1);
+        }
+      });
+    });
+    if (!noRepet && list.length == 1) {
+      msg.warning("该视频已播放，无法重复播放");
+    } else {
+      if (list.length > location) {
+        msg.warning(
+          `选中视频超过可播放总数，仅播放前${location - list.length}个`
+        );
+      }
+      return videoList;
+    }
   }
 }
+
+
+  interface VideoObject {
+    id: Number;
+    name: String;
+    schoolList: Array<any>;
+  }
 </script>
 <template lang="pug" src="views/videoList.pug" />
 <style lang="stylus" src='styles/videoList.stylus' />

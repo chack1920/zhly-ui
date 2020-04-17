@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-05 12:32:06
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-04-01 09:34:49
+ * @LastEditTime : 2020-04-17 10:14:40
  * @FilePath     : \src\main.ts
  */
 // The Vue build version to load with the `import` command
@@ -51,7 +51,7 @@ import {
   // Tabs,
   // TabPane,
   // Tag,
-  // Tree,
+  Tree,
   // Alert,
   // Slider,
   // Icon,
@@ -130,7 +130,7 @@ Vue.use(FormItem);
 // Vue.use(Tabs);
 // Vue.use(TabPane);
 // Vue.use(Tag);
-// Vue.use(Tree);
+Vue.use(Tree);
 // Vue.use(Alert);
 // Vue.use(Slider);
 // Vue.use(Icon);

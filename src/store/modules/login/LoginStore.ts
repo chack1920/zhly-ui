@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-05 15:48:41
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-04-13 13:56:59
+ * @LastEditTime : 2020-04-16 18:42:43
  * @FilePath     : \src\store\modules\login\LoginStore.ts
  */
 import { Module, VuexModule, Mutation, Action } from "vuex-module-decorators";
@@ -23,12 +23,14 @@ export default class LoginStore extends VuexModule {
   public username: string; //state
   public password: string;
   public pid: string;
+  public cid: string;
   public name: string;
   constructor(args) {
     super(args);
     this.username = "";
     this.password = "";
     this.pid = sessionStorage.getItem("pid") || null;
+    this.cid = sessionStorage.getItem("cid") || null;
     this.name = sessionStorage.getItem("userName") || null;
   }
 
@@ -47,14 +49,20 @@ export default class LoginStore extends VuexModule {
             this.password = "";
           } else if (res["code"] == 0) {
             sessionStorage.setItem("loginStatus", "login");
-            sessionStorage.setItem("pid", res.data.projectId);
             sessionStorage.setItem("userId", res.data.id);
             sessionStorage.setItem("userType", res.data.userType);
             sessionStorage.setItem("userAccount", res.data.userAccount);
             sessionStorage.setItem("userName", res.data.userName);
-            this.pid = sessionStorage.getItem("pid");
             this.name = sessionStorage.getItem("userName");
-            router.push({ path: "/home/homePage" });
+            if (res.data.userType == 2) {
+              sessionStorage.setItem("pid", res.data.projectId);
+              this.cid = sessionStorage.getItem("pid");
+              router.push({ path: "/home/homePage" });
+            } else {
+              sessionStorage.setItem("cid", res.data.companyId);
+              this.cid = sessionStorage.getItem("cid");
+              router.push({ path: "/bloc/blocPage" });
+            }
           }
         });
     } else if (!this.username) {

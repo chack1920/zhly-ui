@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-07 17:25:59
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-04-15 17:13:53
+ * @LastEditTime : 2020-04-17 10:04:32
  * @FilePath     : \typings.d.ts
  */
 declare module "*.vue" {
@@ -22,3 +22,4 @@ declare module '*.bmp'
 declare module '*.tiff'
 declare module '*.png'
 declare let EZUIPlayer: any;
+declare let AMap: any;

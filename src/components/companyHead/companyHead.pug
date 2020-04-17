@@ -1,0 +1,15 @@
+#head-wrap
+  .position
+    .left
+      .logo
+      .name {{buildingName}}
+      span {{name}}
+    .right
+      .out(@click="quit")
+        i.el-icon-switch-button
+        span 退出
+    .center
+      span(@click="changeClicked(1)" :class="clicked == 1 ? 'clicked' : ''") 首页
+      span(@click="changeClicked(2)" :class="clicked == 2 ? 'clicked' : ''") 视频列表
+    .shadow
+  .line
