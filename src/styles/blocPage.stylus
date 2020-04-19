@@ -5,6 +5,7 @@
   position relative
   #map
     height 100%
+    font-size .14rem
   .side-nav
     position absolute
     width 5rem
@@ -39,6 +40,13 @@
     .main-list
       overflow auto
       height calc(100% - .5rem)
+      #tree-top
+        /deep/.el-tree-node__children
+          display none !important
+      #tree
+        padding-left .15rem
+        /deep/.el-tree-node__content
+          // padding-left .15rem !important
       >li
         cursor pointer
         height 1rem

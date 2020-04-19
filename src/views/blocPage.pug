@@ -3,8 +3,8 @@
   .side-nav(:class="hidden ? 'right' : ''")
     a(@click="hidden = !hidden")
     .title 总共
-      span.num {{this.store.projectSum}}
+      span.num {{this.store.projectNum}}
       span 个智慧校园
     .main-list
       el-tree(id="tree-top" :data="treeTopData" :props="defaultPropsTop" node-key="id" :default-expanded-keys="open" accordion @node-click="handleNodeClickTop")
-      el-tree(id="tree" v-show="treeShow" :data="this.store.companyList" :props="defaultProps" lazy accordion @node-expand="handleNodeClick" @node-click="getPrijectPosition" @node-contextmenu="getDblclick")
+      el-tree(id="tree" v-show="treeShow" :data="this.store.companyList" :props="defaultProps" lazy accordion @node-expand="handleNodeClick" @node-click="getPrijectPositionWrap")

@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-05 11:37:23
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-04-17 13:52:15
+ * @LastEditTime : 2020-04-17 14:51:30
  * @FilePath     : \src\request\requestConfig.ts
  */
 //配置所有的接口
@@ -38,8 +38,9 @@ export const requestConfig = {
     today: "/api/lyRecord/getRecordCount"
   },
   blocPage: {
-    getComoanyName: "/api/pcCompanyLibrary/selectHjCompanyLibrary",
+    comoanyName: "/api/pcCompanyLibrary/selectHjCompanyLibrary",
     companyList: "/api/pcCompanyLibrary/companyLibraryList",
-    projectList: "/api/project/selectAreaProjectList"
+    projectList: "/api/project/selectAreaProjectList",
+    allProjectNum: "/api/project/selectProjects"
   }
 };

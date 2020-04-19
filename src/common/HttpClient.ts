@@ -13,24 +13,24 @@ let name: string;
 const CancelToken: any = axios.CancelToken;
 
 const removePending: any = (config: any, f: any) => {
-  // 获取请求的url
-  const ip = 'http://47.106.71.3:8080'
-  const req = config.url.includes(ip)
-  const flagUrl = config.url.substring(req ? ip.length : 0, config.url.indexOf('?'));
-  // 判断该请求是否在请求队列中
-  if (pending.includes(flagUrl)) {
-    // 如果在请求中，并存在f，f即axios提供的取消函数
-    if (f) {
-      f('您操作太快了'); // 执行取消操作
-    } else {
-      pending.splice(pending.indexOf(flagUrl), 1); // 把这条记录从数组中移除
-    }
-  } else {
-    // 如果不存在在请求队列中，加入队列
-    if (f) {
-      pending.push(flagUrl);
-    }
-  }
+  // // 获取请求的url
+  // const ip = 'http://47.106.71.3:8080'
+  // const req = config.url.includes(ip)
+  // const flagUrl = config.url.substring(req ? ip.length : 0, config.url.indexOf('?'));
+  // // 判断该请求是否在请求队列中
+  // if (pending.includes(flagUrl)) {
+  //   // 如果在请求中，并存在f，f即axios提供的取消函数
+  //   if (f) {
+  //     f('您操作太快了'); // 执行取消操作
+  //   } else {
+  //     pending.splice(pending.indexOf(flagUrl), 1); // 把这条记录从数组中移除
+  //   }
+  // } else {
+  //   // 如果不存在在请求队列中，加入队列
+  //   if (f) {
+  //     pending.push(flagUrl);
+  //   }
+  // }
 };
 
 /* 创建axios实例 */
