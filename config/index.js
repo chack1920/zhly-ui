@@ -1,8 +1,8 @@
 /*
  * @Date         : 2020-03-07 17:25:59
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-17 20:09:18
- * @FilePath     : /config/index.js
+ * @LastEditTime : 2020-04-22 18:41:30
+ * @FilePath     : \config\index.js
  */
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')

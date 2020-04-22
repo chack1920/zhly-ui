@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-05 11:37:23
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-04-17 14:51:30
+ * @LastEditTime : 2020-04-22 17:26:07
  * @FilePath     : \src\request\requestConfig.ts
  */
 //配置所有的接口
@@ -20,7 +20,10 @@ export const requestConfig = {
     tableData: "/api/lyPersonnel/selectPersonnelPageList",
     searchAlone: "/api/lyPersonnel/selectPersonnelById",
     search: "/api/lyPersonnel/selectPersonnelById",
-    delete: "/api/lyPersonnel/personnelQuit"
+    delete: "/api/lyPersonnel/personnelQuit",
+    upDatePersonnel: "/api/lyPersonnel/importPerson",
+    upDateImg: "/api/lyPersonnel/uploadFace",
+    downloadPeople: "/api/lyPersonnel/in"
   },
   attendanceRecord: {
     tableData: "/api/lyRecord/selectPersonnelRecordPageList",
@@ -42,5 +45,8 @@ export const requestConfig = {
     companyList: "/api/pcCompanyLibrary/companyLibraryList",
     projectList: "/api/project/selectAreaProjectList",
     allProjectNum: "/api/project/selectProjects"
+  },
+  videoList: {
+    videoList: "/api/hyvideo/getVideoList"
   }
 };

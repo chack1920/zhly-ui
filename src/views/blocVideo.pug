@@ -1,0 +1,21 @@
+#video-list-wrap
+  .list(:class="className == 'el-icon-caret-right' ? 'left' : ''")
+    .button(@click="changeClassName")
+      i(:class="className")
+    .menu
+      p 视频列表
+      span(@click="clearAll") 清除所有
+    #typeOne
+      .education-wrap(v-for="(project, index) in videoList" :key="project.pid")
+        p.education
+          i(@click="educationShow = educationShow == project.pid ? 0 : project.pid" :class="educationShow == project.pid ? 'el-icon-caret-bottom' : 'el-icon-caret-right'")
+          span.no-wrap(@click="educationShow = educationShow == project.pid ? 0 : project.pid" :title="project.projectName") {{project.projectName}}
+          i.el-icon-video-camera(title="点击播放所有视频" @click="getProject(project)" :class="educationId == project.pid ? 'red' : ''")
+        .school-wrap(:class="educationShow == project.pid ? 'height' : ''")
+          .school(v-for="(video, index) in project.videoList" :key="video.hdUrl")
+            p.school-name(:class="schoolId == video.hdUrl ? 'actived' : ''" @click="playOnly(video)")
+              span.no-wrap(:title="video.videoName") {{video.videoName}}
+  .video-list
+    .video-wrap(v-for="(video, index) in videoSrc")
+      video(:id="video.id" width="100%" height="100%" controls src="" muted)
+      i.el-icon-circle-close(@click="delVideo(`${video.id}`)")

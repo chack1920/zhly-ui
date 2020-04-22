@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-04-16 18:09:09
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-04-16 19:34:10
+ * @LastEditTime : 2020-04-22 20:54:46
  * @FilePath     : \src\components\companyHead\index.vue
  -->
 <script lang="ts">
@@ -13,7 +13,7 @@ export default class Login extends Vue {
   private name:string;
   private store:any;
   private buildingName = sessionStorage.getItem("buildingName") ? sessionStorage.getItem("buildingName") : "";
-  private clicked:number = 1
+  private clicked:number = sessionStorage.getItem("companyHeadMenu") ? Number(sessionStorage.getItem("companyHeadMenu")) : 1;
   constructor() {
     super();
     this.name = sessionStorage.getItem('userName');
@@ -24,12 +24,13 @@ export default class Login extends Vue {
   }
   changeClicked(id) {
     this.clicked = id
+    sessionStorage.setItem("companyHeadMenu", id)
     switch (Number(id)) {
       case 1:
         router.push({path: "/bloc/blocPage"})
         break;
       case 2:
-        router.push({path: "/login"})
+        router.push({path: "/bloc/blocVideo"})
         break;
       default:
         break;

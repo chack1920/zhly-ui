@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-03-05 17:14:48
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-04-13 14:26:04
+ * @LastEditTime : 2020-04-22 14:24:59
  * @FilePath     : \src\pages\home\home.vue
  -->
 <script lang="ts">
@@ -42,11 +42,6 @@ export default class Home extends Vue {
       icon: require("static/blacklist.png"),
       name: "黑 名 单",
       path: "/home/blackListPage"
-    },
-    {
-      icon: require("static/blacklist.png"),
-      name: "测温视频",
-      path: "/home/videoList"
     }
   ]
   constructor() {

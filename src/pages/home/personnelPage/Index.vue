@@ -1,8 +1,8 @@
 <!--
  * @Date         : 2020-03-12 14:41:56
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-03-17 18:02:43
- * @FilePath     : /src/pages/home/personnelPage/Index.vue
+ * @LastEditTime : 2020-04-22 17:25:22
+ * @FilePath     : \src\pages\home\personnelPage\Index.vue
  -->
 <script lang="ts">
 import { Component, Vue, Model, Prop, Watch } from "vue-property-decorator";
@@ -94,6 +94,29 @@ export default class PersonnelPage extends Vue {
     } else {
       return false
     }
+  }
+  public upDateFile(e) {
+    let file = e.target.files[0]
+    let excel = (/.(xls|xlsx)$/i).test(file.name)
+    if (excel) {
+      this.store.upDateFile(file)
+    } else {
+      msg.warning("请上传EXCEL格式的文件")
+      e.target.value = ""
+    }
+  }
+  public upDateImgs(id, e) {
+    let file = e.target.files[0]
+    let excel = (/.(png|jpg|jpeg)$/i).test(file.name)
+    if (excel) {
+      this.store.upDateImgs({id, img: file})
+    } else {
+      msg.warning("请上传png、jpg、jpeg格式图片")
+      e.target.value = ""
+    }
+  }
+  public downloadPeople() {
+    this.store.downloadPeople();
   }
 }
 </script>

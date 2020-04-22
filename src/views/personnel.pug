@@ -24,7 +24,14 @@
       .delete(slot="reference")
         i.el-icon-delete
         span 离职
-  .table-wrap(v-loading="$store.state.PersonnelStore.loading" element-loading-text="拼命加载中...")
+    .delete(@click="$refs.file.click()")
+      i.el-icon-upload
+      span 人员导入
+      input(type="file" ref="file" @change="upDateFile" style="display: none")
+    .delete(@click="downloadPeople")
+      i.el-icon-download
+      span 人员下发
+  .table-wrap(v-loading="$store.state.PersonnelStore.loading" element-loading-text="加载中...")
     el-table(:data="$store.state.PersonnelStore.tableData" ref="table", stripe, width="100%", border, @selection-change="selectChange")
       el-table-column(type="selection" width="40", :selectable="disable")
       el-table-column(type="index" label="序号" width="70", :index="getIndex")
@@ -37,6 +44,12 @@
         template(slot-scope="scope") {{ scope.row.type == 1 ? '正式人员' : '访客人员' }}
       el-table-column(label="状态")
         template(slot-scope="scope") {{ scope.row.ispresent == 1 ? '离职' : scope.row.ispresent === "0" ? '在职' : '无数据' }}
+      el-table-column(label="头像")
+        template(slot-scope="scope")
+          span(v-if="scope.row.faceUrl" class="examine") 查看图片
+            img(:src="scope.row.faceUrl")
+          span(v-else @click="$refs.fileImg.click()" class="updataImg") 上传图片
+            input(type="file" ref="fileImg" @change="upDateImgs(scope.row.id, $event)" style="display: none")
   .page-wrap
     el-pagination(@current-change="handleCurrentChange", :current-page="$store.state.PersonnelStore.pageNum", :page-size="$store.state.PersonnelStore.pageSize" layout="total, prev, pager, next, jumper", :total="$store.state.PersonnelStore.total")
   //- dialog-box(:show.sync="show", :title="title", @clear="clear", @confirm="confirm('ruleForm')" width="6rem")

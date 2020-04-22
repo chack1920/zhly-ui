@@ -6,7 +6,11 @@ import Vue from 'vue';import Router, { RouteConfig } from 'vue-router';;Vue.use(
             {
               component: () => import('../../pages/bloc/blocPage/Index.vue'),
               name:'bloc-blocPage',
-              path:'blocPage',},],},
+              path:'blocPage',},
+            {
+              component: () => import('../../pages/bloc/blocVideo/Index.vue'),
+              name:'bloc-blocVideo',
+              path:'blocVideo',},],},
             {
               component: () => import('../../pages/home/home.vue'),
               name:'home',
@@ -30,11 +34,7 @@ import Vue from 'vue';import Router, { RouteConfig } from 'vue-router';;Vue.use(
             {
               component: () => import('../../pages/home/personnelPage/Index.vue'),
               name:'home-personnelPage',
-              path:'personnelPage',},
-            {
-              component: () => import('../../pages/home/videoList/Index.vue'),
-              name:'home-videoList',
-              path:'videoList',},],},
+              path:'personnelPage',},],},
             {
               component: () => import('../../pages/login/Index.vue'),
               name:'login',
