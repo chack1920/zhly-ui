@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-13 15:43:16
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-04-01 20:22:27
+ * @LastEditTime : 2020-04-23 20:43:24
  * @FilePath     : \src\store\modules\attendanceRecord\AttendanceRecordStore.ts
  */
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
@@ -97,9 +97,11 @@ export default class AttendanceRecordSrore extends VuexModule {
   public download() {
     axios({
       method: "get",
-      url: `${requestConfig.attendanceRecord.excel}?pid=${this.pid}&passedTime=${this.searchPassedTime}`,
+      url: `${requestConfig.attendanceRecord.excel}?projectId=${
+        this.pid
+      }&passedTime=${this.searchPassedTime}`,
       responseType: "blob",
-      params: "考勤记录"
+      params: "考勤记录",
     });
   }
 }
